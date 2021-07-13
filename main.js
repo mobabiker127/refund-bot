@@ -19,13 +19,15 @@ client.on('guildMemberAdd', member =>{
 
     const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📝・rules')
      
-    member.guild.channels.cache.find(channel => channel.name === '👋│join-logs').send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
+    const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
+    welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
     
 })
 
 client.on('guildMemberRemove', member =>{
      
-    member.guild.channels.cache.find(channel => channel.name === '😥┃leave-logs').send(`Goodbye <@${member.user.id}>. I hope you enjoyed your visit!`)
+    const goodbye = member.guild.channels.cache.find(channel => channel.name === '😥┃leave-logs')
+    goodbye.send(`Goodbye <@${member.user.id}>. I hope you enjoyed your visit!`)
     
 })
 
