@@ -17,10 +17,9 @@ client.events = new Discord.Collection();
 
 client.on('guildMemberAdd', guildMember =>{
 
-    const firstChannelId = '857684941776879657'
-    const secondChannelId = '863793875768311829'
+    const ChannelId = '864229922376646688'
      
-    guildMember.guild.channels.cache.get('863521433215696906').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${guildMember.guild.channels.cache.get(firstChannelId).toString()} and ${guildMember.guild.channels.cache.get(secondChannelId).toString()}`)
+    guildMember.guild.channels.cache.get('813826723120152596').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${guildMember.guild.channels.cache.get(ChannelId).toString()}.`)
     
 })
 
