@@ -3,8 +3,8 @@ module.exports = {
     description: "allows a user to react and receive a role.",
     permissions: ["ADMINISTRATOR"],
     async  execute(client, message, args, Discord) {
-        const channel = '857636392564424725';
-        const customerRole = message.guild.roles.cache.find(role => role.name === "Premium Customer");
+        const channel = '813826734705213470';
+        const customerRole = message.guild.roles.cache.find(role => role.name === "Customer");
 
         const customerEmoji = '🍴';
 
@@ -34,23 +34,7 @@ module.exports = {
  
         });
  
-        client.on('messageReactionRemove', async (reaction, user) => {
- 
-            if (reaction.message.partial) await reaction.message.fetch();
-            if (reaction.partial) await reaction.fetch();
-            if (user.bot) return;
-            if (!reaction.message.guild) return;
- 
- 
-            if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === customerEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(customerRole);
-                }
 
-            } else {
-                return;
-            }
-        });
     }
  
 } 
