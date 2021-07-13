@@ -15,11 +15,11 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client, Discord); 
 })
 
-client.on('guildMemberAdd', guildMember =>{
+client.on('guildMemberAdd', member =>{
 
-    const ChannelId = guildMember.guild.channels.cache.find(ch => ch.name === '\:pencil:・rules')
+    const ChannelId = member.guild.channels.cache.find(channel => channel.name === ':pencil:・rules')
      
-    guildMember.guild.channels.cache.find(ch => ch.name === '\:wave:┃join-logs').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
+    member.guild.channels.cache.find(channel => channel.name === ':wave:┃join-logs').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
     
 })
 
