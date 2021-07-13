@@ -17,9 +17,9 @@ client.events = new Discord.Collection();
 
 client.on('guildMemberAdd', member =>{
 
-    const ChannelId = member.guild.channels.cache.find(channel => channel.name === ':pencil:・rules')
+    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📝・rules')
      
-    member.guild.channels.cache.find(channel => channel.name === ':wave:┃join-logs').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
+    member.guild.channels.cache.find(channel => channel.name === '👋│join-logs').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
     
 })
 
