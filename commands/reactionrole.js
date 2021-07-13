@@ -1,7 +1,7 @@
 module.exports = {
     name: 'reactionrole',
     description: "allows a user to react and receive a role.",
-    permissions: ["ADMINISTRATOR"],
+    permissions: ["READ_MESSAGE_HISTORY"],
     async  execute(client, message, args, Discord) {
         const channel = '813826734705213470';
         const customerRole = message.guild.roles.cache.find(role => role.name === "Customer");
