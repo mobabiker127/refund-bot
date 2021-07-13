@@ -15,12 +15,6 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client, Discord); 
 })
 
-client.on('guildMemberAdd', guildMember =>{
 
-    const ChannelId = '864229922376646688'
-     
-    guildMember.guild.channels.cache.get('813826723120152596').send(`Welcome <@${guildMember.user.id}> to Refund! Make sure to read ${guildMember.guild.channels.cache.get(ChannelId).toString()}.`)
-    
-})
 
 client.login(process.env.token);
