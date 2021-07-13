@@ -1,4 +1,5 @@
-client.on('guildMemberAdd', guildMember =>{
+module.exports = (client) =>{
+client.on('guildMemberAdd', (member) =>{
 
     const channelId = member.guild.channels.cache.find(ch => ch.name === '\:wave:│join-logs')
     const ruleID = member.guild.channels.cache.find(ch => ch.name === '\:pencil:・rules')
@@ -9,3 +10,4 @@ client.on('guildMemberAdd', guildMember =>{
     member.roles.add(role)
     channelId.send(welcome)
 })
+}

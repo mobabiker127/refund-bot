@@ -3,7 +3,7 @@ module.exports = {
     description: "allows a user to react and receive a role.",
     permissions: ["READ_MESSAGE_HISTORY"],
     async  execute(client, message, args, Discord) {
-        const channel = guildMember.guild.channels.cache.find(ch => ch.name === '『』verify『』')
+        const channel = member.guild.channels.cache.find(ch => ch.name === '『』verify『』')
         const customerRole = message.guild.roles.cache.find(role => role.name === "Customer");
 
         const customerEmoji = '🍴';
