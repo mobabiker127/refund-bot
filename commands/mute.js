@@ -1,5 +1,5 @@
 const ms = require('ms');
-const e = require("./events/client/error");
+
 module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
