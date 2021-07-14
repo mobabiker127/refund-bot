@@ -12,18 +12,16 @@ module.exports = {
             let memberTarget = message.guild.members.cache.get(target.id);
 
             if(!args[1]){
-                message.reply("Format: **?mute <@user> [time]**");
+                memberTarget.roles.add(muteRole.id);
+                message.channel.send(`<@${memberTarget.user.id} has been muted indefinitely.`);
                 return 
             }
-            if(isNaN(args[1])){
-                return message.reply("That is not a valid time.");
-            }
-
             memberTarget.roles.add(muteRole.id);
-            message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}.`);
-
+            message.channel.send(`<@${memberTarget.user.id} has been muted for ${ms(ms(args[1]))}`);
             
-        
+            if(isNaN(args[1])){
+                return message.reply("**Format: ?mute <@user> [time]**");
+            }
 
             setTimeout(function(){
                 memberTarget.roles.remove(muteRole.id);
