@@ -1,4 +1,5 @@
 const ms = require('ms');
+let U = require("./error.js");
 module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
@@ -28,7 +29,6 @@ module.exports = {
         else{
             message.channel.send('Not a valid user.');
         }
-        let U = require("./error.js");
         }
         catch (err) {
             U.catchErr(err, message);
