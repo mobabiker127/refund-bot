@@ -6,7 +6,7 @@ module.exports = {
     execute(client, message, args, Discord){
         const target = message.mentions.users.first();
         if(target){
-            let mainRole = message.guild.roles.cache.find(role => role.name === 'Customer');
+
             let muteRole = message.guild.roles.cache.find(role => role.name === 'Muted');
 
             let memberTarget = message.guild.members.cache.get(target.id);
@@ -19,7 +19,6 @@ module.exports = {
                 return message.reply("That is not a valid time.");
             }
 
-            memberTarget.roles.remove(mainRole.id);
             memberTarget.roles.add(muteRole.id);
             message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}.`);
 
@@ -28,7 +27,6 @@ module.exports = {
 
             setTimeout(function(){
                 memberTarget.roles.remove(muteRole.id);
-                memberTarget.roles.add(mainRole.id);
             }, ms(args[1]));
         }
         else{

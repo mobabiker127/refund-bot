@@ -6,6 +6,7 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 const prefix = '?';
 
 const fs = require('fs');
+const { runInContext } = require('vm');
 
 client.commands = new Discord.Collection();
 
@@ -30,6 +31,8 @@ client.on('guildMemberRemove', member => {
     goodbye.send(`Goodbye <@${member.user.id}>. I hope you enjoyed your visit!`)
 
 })
+
+
 
 
 
