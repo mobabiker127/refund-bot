@@ -3,7 +3,7 @@ module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
     permissions: ["MANAGE_MESSAGES"],
-    execute(client, message, args, Discord, {catchErr}){
+    execute(client, message, args, Discord, catchErr){
         try{
         const target = message.mentions.users.first();
         if(target){
