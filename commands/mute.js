@@ -1,5 +1,5 @@
 const ms = require('ms');
-const U = require("./error.js");
+const e = require("./error.js");
 module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
@@ -31,7 +31,7 @@ module.exports = {
         }
         }
         catch (err) {
-            U.catchErr(err, message);
+            e.catchErr(err, message);
         }
     }
 }
