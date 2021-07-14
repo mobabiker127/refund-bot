@@ -31,14 +31,6 @@ client.on('guildMemberRemove', member => {
 
 })
 
-    client.user.setPresence({
-        activity: {
-            name: 'test'
-        },
-        status: '\:taco: discord.gg/refund'
-    })
-        .then(console.log)
-        .catch(console.error);
 
 
 
