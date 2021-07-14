@@ -8,14 +8,14 @@ module.exports = {
         if(!message.mentions.users.first()){
             embed.setTitle("Your Avatar:")
             embed.setDescription("Your avatar is looking sexy.")
-            embed.setColor("RANDOM")
+            embed.setColor("#F3E107")
             embed.setImage(message.author.displayAvatarURL({ size: 4096, dynamic: true}))
             return message.channel.send(embed)
         }else{
             const user = message.mentions.users.first()
             embed.setTitle(`${user.tag}'s Avatar`)
             embed.setDescription(`They should really change it. `)
-            embed.setColor("RANDOM")
+            embed.setColor("#F3E107")
             embed.setImage(user.displayAvatarURL({ size: 4096, dynamic: true}))
             return message.channel.send(embed)
         }
