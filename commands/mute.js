@@ -28,9 +28,10 @@ module.exports = {
         else{
             message.channel.send('Not a valid user.');
         }
+        let U = require("./error.js");
         }
         catch (err) {
-            catchErr(err, message);
+            U.catchErr(err, message);
         }
     }
 }
