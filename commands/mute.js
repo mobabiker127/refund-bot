@@ -18,10 +18,6 @@ module.exports = {
             }
             memberTarget.roles.add(muteRole.id);
             message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
-            
-            if(isNaN(args[1])){
-                return message.reply("**Format: ?mute <@user> [time]**");
-            }
 
             setTimeout(function(){
                 memberTarget.roles.remove(muteRole.id);
