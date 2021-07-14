@@ -13,11 +13,11 @@ module.exports = {
 
             if(!args[1]){
                 memberTarget.roles.add(muteRole.id);
-                message.channel.send(`<@${memberTarget.user.id} has been muted indefinitely.`);
+                message.channel.send(`<@${memberTarget.user.id}> has been muted indefinitely.`);
                 return 
             }
             memberTarget.roles.add(muteRole.id);
-            message.channel.send(`<@${memberTarget.user.id} has been muted for ${ms(ms(args[1]))}`);
+            message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
             
             if(isNaN(args[1])){
                 return message.reply("**Format: ?mute <@user> [time]**");
