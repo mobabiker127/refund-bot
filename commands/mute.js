@@ -1,5 +1,5 @@
 const ms = require('ms');
-let U = require("./error.js");
+let U = require("/Users/mobabiker/Documents/GitHub/refundbot/error.js");
 module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
