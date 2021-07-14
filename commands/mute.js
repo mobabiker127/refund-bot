@@ -4,6 +4,7 @@ module.exports = {
     description: "Mutes a member in the server.",
     permissions: ["MANAGE_MESSAGES"],
     execute(client, message, args, Discord){
+        try{
         const target = message.mentions.users.first();
         if(target){
 
@@ -11,15 +12,11 @@ module.exports = {
 
             let memberTarget = message.guild.members.cache.get(target.id);
 
-            try {
             if(!args[1]){
                 memberTarget.roles.add(muteRole.id);
                 message.channel.send(`<@${memberTarget.user.id}> has been muted indefinitely.`);
                 return 
             }
-        }   catch (err){
-            console.log(err);
-        }
             memberTarget.roles.add(muteRole.id);
             message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}`);
 
@@ -30,6 +27,10 @@ module.exports = {
         }
         else{
             message.channel.send('Not a valid user.');
+        }
+        }
+        catch (err) {
+            catchErr(err, message);
         }
     }
 }
