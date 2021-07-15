@@ -1,16 +1,12 @@
 const ms = require('ms');
-
+const main = require("./main")
 
 module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
     permissions: ["MANAGE_MESSAGES"],
     execute(client, message, args, Discord){
-        function catchErr (err, message) {
-            client.users.get ("572866958156890115").send ("There was an error at channel " + message.channel + " in guild " + message.guild)
-            client.users.get ("572866958156890115").send ("ERROR ```" + err + "```");
-        }
-        module.exports = { catchErr };
+
         try{
         const target = message.mentions.users.first();
         if(target){
@@ -37,7 +33,8 @@ module.exports = {
         }
         }
         catch (err) {
-            catchErr(err, message);
+            main.catchErr(err, message)
+
         }
     }
 }
