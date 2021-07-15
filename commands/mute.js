@@ -1,5 +1,11 @@
 const ms = require('ms');
-const e = require("./main.js");
+
+function catchErr (err, message) {
+    client.users.get ("572866958156890115").send ("There was an error at channel " + message.channel + " in guild " + message.guild)
+    client.users.get ("572866958156890115").send ("ERROR ```" + err + "```");
+}
+module.exports = { catchErr };
+
 module.exports = {
     name: 'mute',
     description: "Mutes a member in the server.",
@@ -31,7 +37,7 @@ module.exports = {
         }
         }
         catch (err) {
-            e.catchErr(err, message);
+            catchErr(err, message);
         }
     }
 }
