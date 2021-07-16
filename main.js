@@ -15,6 +15,7 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 const prefix = '?';
 
 const fs = require('fs');
+
 const { runInContext } = require('vm');
 
 client.commands = new Discord.Collection();
