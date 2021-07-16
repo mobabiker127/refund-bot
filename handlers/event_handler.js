@@ -1,7 +1,6 @@
 const fs = require('fs');
 
-module.exports = {
-    execute(client, Discord) {
+module.exports = (client, Discord, message, args) =>{
     const load_dir = (dirs) =>{
         const event_files = fs.readdirSync(`./events/${dirs}`).filter(file => file.endsWith('.js'));
 
@@ -13,5 +12,4 @@ module.exports = {
     }
 
     ['client', 'guild'].forEach(e => load_dir(e));
-}
 }
