@@ -1,5 +1,4 @@
 const ms = require('ms');
-const main = require("./main.js");
 
 module.exports = {
     name: 'mute',
