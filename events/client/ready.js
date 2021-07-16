@@ -1,11 +1,11 @@
 
-module.exports = (client, message, args, Discord) => {
-
+module.exports = { 
+    execute(client, message, args, Discord) {
     console.log('Refund.')
 
-    const peopleIn = message.guilds.members
+    const peopleIn = client.guilds.cache.size
 
-    message.user.setPresence({
+    client.user.setPresence({
         activity: {
             name: `${peopleIn} people.`,
             type: "WATCHING"
@@ -14,4 +14,5 @@ module.exports = (client, message, args, Discord) => {
     })
         .catch(console.error);
 
+}
 }
