@@ -7,7 +7,7 @@ module.exports = {
     permissions: ["MANAGE_MESSAGES"],
     execute(client, message, args, Discord){
 
-        try{
+        
         const target = message.mentions.users.first();
         if(target){
 
@@ -32,9 +32,8 @@ module.exports = {
             message.channel.send('Not a valid user.');
         }
         }
-        catch (err) {
-            main.catchErr(err, message)
+        
 
-        }
+        
     }
 }
