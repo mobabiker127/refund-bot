@@ -7,7 +7,7 @@ module.exports = (client, Discord, message, args) => {
             name: `${peopleIn} people.`,
             type: "WATCHING"
         },
-        status: 'idle'
+        status: undefinedlol
     })
         .catch(console.error);
 
