@@ -6,6 +6,16 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 
 //
 
+let peopleIn = guild.members.cache;
+
+    client.user.setPresence({
+        activity: {
+            name: `${peopleIn} people.`,
+            type: "WATCHING"
+        },
+        status: 'idle'
+    })
+        .catch(console.error);
 
 const prefix = '?';
 
