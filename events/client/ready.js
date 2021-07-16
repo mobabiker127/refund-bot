@@ -1,4 +1,4 @@
-client.once('ready', () => {
+Discord.client.once('ready', () => {
 
     console.log('Refund.')
 
