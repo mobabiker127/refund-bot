@@ -1,5 +1,5 @@
 const ms = require('ms');
-const main = require("/Users/mobabiker/Documents/GitHub/refundbot/main.js");
+const { catchErr } = require('../handlers/command_handler');
 
 module.exports = {
     name: 'mute',
@@ -7,6 +7,7 @@ module.exports = {
     permissions: ["MANAGE_MESSAGES"],
     execute(client, message, args, Discord) {
 
+        try{
 
         const target = message.mentions.users.first();
         if (target) {
@@ -31,6 +32,10 @@ module.exports = {
         else {
             message.channel.send('Not a valid user.');
         }
+    }
+    catch(err) {
+        catchErr(err, message);
+    }
     }
 
 
