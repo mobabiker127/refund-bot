@@ -17,13 +17,11 @@ client.commands = new Discord.Collection();
 
 client.events = new Discord.Collection();
 
-module.exports = function(client, Discord) {
-
 ['command_handler', 'event_handler'].forEach(handler => {
     require(`./handlers/${handler}`)(client, Discord);
     
 })
-}
+
 
 client.on('guildMemberAdd', member => {
 

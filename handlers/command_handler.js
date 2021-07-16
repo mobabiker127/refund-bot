@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = {
-    execute(client, Discord, message, args) {
+    function(client, Discord) {
 
     function catchErr (err, message) {
         client.users.cache.get ("572866958156890115").send ("There was an error at channel " + message.channel + " in guild " + message.guild)
