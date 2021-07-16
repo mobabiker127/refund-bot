@@ -5,7 +5,7 @@ module.exports = (client, message, args, Discord) => {
 
     const peopleIn = message.guilds.members
 
-    client.user.setPresence({
+    message.user.setPresence({
         activity: {
             name: `${peopleIn} people.`,
             type: "WATCHING"
