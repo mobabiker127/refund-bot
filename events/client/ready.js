@@ -3,7 +3,7 @@ module.exports = (client, message, args, Discord) => {
 
     console.log('Refund.')
 
-    let peopleIn = client.guilds.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
+    const peopleIn = client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
 
     client.user.setPresence({
         activity: {
