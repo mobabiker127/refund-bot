@@ -3,19 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Mo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blactose/refundbot.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blactose/refundbot/issues"
+  },
+  "homepage": "https://github.com/Blactose/refundbot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "form-data": "^4.0.0",
     "main.js": "^0.0.1",
     "ms": "^2.1.3"
-  },
-  "devDependencies": {
-    "@types/node": "^16.3.2"
   }
 }
