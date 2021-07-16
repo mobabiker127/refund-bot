@@ -1,10 +1,11 @@
 const fs = require('fs');
 
-module.exports = (client, Discord) =>{
+module.exports = {
+    execute(client, Discord, message, args) {
 
     function catchErr (err, message) {
         client.users.cache.get ("572866958156890115").send ("There was an error at channel " + message.channel + " in guild " + message.guild)
-        client.users.cache.get ("572866958156890115").send ("ERROR ```" + err + "```");
+        client.users.get ("572866958156890115").send ("ERROR ```" + err + "```");
     }
 
     module.exports = {catchErr};
@@ -19,4 +20,5 @@ module.exports = (client, Discord) =>{
             continue;
         }
     }
+}
 }
