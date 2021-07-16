@@ -45,3 +45,5 @@ client.on('guildMemberRemove', member => {
 
 
     client.login(process.env.token);
+
+    require('./ready.js')(client, Discord)
