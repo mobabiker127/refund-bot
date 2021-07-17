@@ -40,8 +40,8 @@ client.on('guildMemberRemove', member => {
 })
 
 
-module.exports = (client, Discord, message, args) => {
-    client.once('ready', () => {
+module.exports = (client, Discord) => {
+
 
         const peopleIn = client.guilds.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
 
@@ -54,7 +54,7 @@ module.exports = (client, Discord, message, args) => {
         })
             .catch(console.error);
 
-    })
+    
 };
 
 
