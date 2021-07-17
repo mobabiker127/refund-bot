@@ -1,6 +1,6 @@
 const { catchErr } = require('../handlers/command_handler');
 module.exports = {
-    name: 'rr',
+    name: 'rr1',
     description: "allows a user to react and receive a role.",
     permissions: ["READ_MESSAGE_HISTORY"],
     async execute(client, message, args, Discord) {
