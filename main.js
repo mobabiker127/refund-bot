@@ -17,6 +17,8 @@ client.commands = new Discord.Collection();
 
 client.events = new Discord.Collection();
 
+module.exports = client;
+
 ['command_handler', 'event_handler'].forEach(handler => {
     require(`./handlers/${handler}`)(client, Discord);
 
@@ -25,7 +27,7 @@ client.events = new Discord.Collection();
 
 client.on('guildMemberAdd', member => {
 
-    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📝・rules')
+    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
 
     const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
     welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
