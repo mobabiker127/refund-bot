@@ -1,11 +1,11 @@
 const { catchErr } = require('../handlers/command_handler');
 module.exports = {
-    name: 'reactionrole',
+    name: 'rr',
     description: "allows a user to react and receive a role.",
     permissions: ["READ_MESSAGE_HISTORY"],
     async execute(client, message, args, Discord) {
         try {
-            const channel = guildMember.guild.channels.cache.find(ch => ch.name === '『』verify『』')
+            const channel = guildMember.guild.channels.cache.find(ch => ch.name === '📃│verification')
             const customerRole = message.guild.roles.cache.find(role => role.name === "Customer");
 
             const customerEmoji = '🍴';
