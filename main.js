@@ -49,16 +49,13 @@ client.on("ready", function () {
 
     const arrayOfStatus = [
         `${peopleIn} people.`,
-        `discord.gg/refund 🌮`
+        `🌮 discord.gg/refund `
     ];
     let index = 0;
     setInterval(() => {
         if (index === arrayOfStatus.length) index = 0;
         const status = arrayOfStatus[index];
-        client.user.setActivity(status, { type: "WATCHING" }).catch(console.error)
-        client.user.setPresence({
-            status: 'idle'
-        })
+        client.user.setActivity(status, { type: "WATCHING" status: 'idle'}).catch(console.error)
         index++;
     }, 6000)
 })
