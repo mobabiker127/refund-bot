@@ -1,6 +1,6 @@
 
 module.exports = () => {
-        console.log('Refund.')
+        console.log('Refund.');
 }
 
 
