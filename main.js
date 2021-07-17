@@ -1,5 +1,10 @@
 // 
-const { catchErr } = require('/Users/mobabiker/Documents/GitHub/refundbot/handlers/command_handler.js');
+function catchErrr (err, message) {
+    client.users.cache.get ("572866958156890115").send ("There was an error at channel " + message.channel + " in guild " + message.guild);
+    client.users.cache.get ("572866958156890115").send ("ERROR ```" + err + "```");
+}
+
+
 try {
 
     const Discord = require('discord.js');
@@ -66,7 +71,7 @@ try {
     client.login(process.env.token);
 }
 catch(err) {
-    catchErr(err, message);
+    catchErrr(err, message);
 }
 
 
