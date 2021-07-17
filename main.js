@@ -41,6 +41,11 @@ client.on('guildMemberRemove', member => {
 
 })
 
+client.on("ready", function(){
+    console.log(`Refund.`);
 
+
+
+})
 
 client.login(process.env.token);
