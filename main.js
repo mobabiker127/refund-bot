@@ -13,7 +13,7 @@ try {
 
     //
 
-
+    const ms = require('ms');
     const prefix = '?';
 
     const fs = require('fs');
