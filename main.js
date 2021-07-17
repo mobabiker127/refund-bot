@@ -56,10 +56,10 @@ client.on("ready", function () {
         if (index === arrayOfStatus.length) index = 0;
         const status = arrayOfStatus[index];
         client.user.setActivity(status, { type: "WATCHING" }).catch(console.error)
-        
+
         index++;
-    }, 6000)
+    }, 1000)
 })
 
-
 client.login(process.env.token);
+
