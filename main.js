@@ -56,7 +56,7 @@ client.on("ready", function () {
         if (index === arrayOfStatus.length) index = 0;
         const status = arrayOfStatus[index];
         client.user.setActivity(status, { type: "WATCHING" }).catch(console.error)
-        client.user.setStatus('idle')
+        
         index++;
     }, 6000)
 })
