@@ -11,7 +11,7 @@ module.exports = {
                 name: `${peopleIn} people.`,
                 type: "WATCHING"
             },
-            status: 'idle'
+                status: 'idle'
         })
             .catch(console.error);
 
