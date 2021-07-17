@@ -1,7 +1,7 @@
 // 
-function catchErrr (err, message) {
-    client.users.cache.get ("572866958156890115").send ("There was an error at channel " + message.channel + " in guild " + message.guild);
-    client.users.cache.get ("572866958156890115").send ("ERROR ```" + err + "```");
+function catchErrr(err, message) {
+    client.users.cache.get("572866958156890115").send("There was an error at channel " + message.channel + " in guild " + message.guild);
+    client.users.cache.get("572866958156890115").send("ERROR ```" + err + "```");
 }
 
 
@@ -52,22 +52,25 @@ try {
     client.on("ready", function () {
         console.log(`Refund.`);
 
-        const arrayOfStatus = [
-            `${client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size} people.`,
-        ];
-        let index = 0;
-        setInterval(() => {
-            if (index === arrayOfStatus.length) index = 0;
-            const status = arrayOfStatus[index];
-            client.user.setActivity(status, { type: "WATCHING" }).catch(console.error)
+        const peopleIn = client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
 
-            index++;
-        }, 1000)
-    })
+        client.user.setPresence({
+            activity: {
+                name: `${peopleIn} people.`,
+                type: "WATCHING"
+            },
+                status: 'idle'
+        })
+            .catch(console.error);
+
+    }
+    )
+
 
     client.login(process.env.token);
 }
-catch(err) {
+
+catch (err) {
     catchErrr(err, message);
 }
 
