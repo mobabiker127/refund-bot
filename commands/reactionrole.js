@@ -5,7 +5,7 @@ module.exports = {
     permissions: ["READ_MESSAGE_HISTORY"],
     async execute(client, message, args, Discord) {
         try {
-            const channel = guildMember.guild.channels.cache.find(ch => ch.name === '📃│verification')
+            const channel = client.guild.channels.cache.find(ch => ch.name === '📃│verification')
             const customerRole = message.guild.roles.cache.find(role => role.name === "Customer");
 
             const customerEmoji = '🍴';
