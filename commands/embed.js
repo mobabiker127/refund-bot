@@ -1,4 +1,4 @@
-const message = require("../events/guild/message");
+const message = require("../events/message");
 
 module.exports = {
     name: 'embed',
