@@ -52,10 +52,8 @@ try {
     client.on("ready", function () {
         console.log(`Refund.`);
 
-        const peopleIn = client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
-
         const arrayOfStatus = [
-            `${peopleIn} people.`,
+            `${client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size} people.`,
         ];
         let index = 0;
         setInterval(() => {
