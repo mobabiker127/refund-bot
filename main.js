@@ -40,7 +40,7 @@ client.on('guildMemberRemove', member => {
 })
 
 
-bot.user.setActivity('Test')
+client.user.setActivity('Test')
 
 
 
