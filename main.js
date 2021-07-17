@@ -1,5 +1,5 @@
 // 
-const { catchErr } = require('../handlers/command_handler');
+const { catchErr } = require('/Users/mobabiker/Documents/GitHub/refundbot/handlers/command_handler.js');
 try {
 
     const Discord = require('discord.js');
