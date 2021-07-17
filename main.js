@@ -56,7 +56,6 @@ try {
 
         const arrayOfStatus = [
             `${peopleIn} people.`,
-            `discord.gg/refund `
         ];
         let index = 0;
         setInterval(() => {
