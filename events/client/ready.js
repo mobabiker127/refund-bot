@@ -1,8 +1,8 @@
 
-module.exports = (client, Discord) => {
+module.exports = () => {
         
         console.log('Refund.');
-        client.user.setActivity('Test')
+        
         
 }
 
