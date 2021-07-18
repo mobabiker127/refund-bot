@@ -17,7 +17,7 @@ module.exports = {
                     { name: '\:four: **Unnecessary pings for staff or head chef is not allowed.**', value: 'They are busy people!' },
                     { name: '\:five: **Sending ipgrabbers or any of the sort is forbidden.**', value: 'This may result in a permanent ban.' },
                     { name: '\:six: **Having more than 2 alt accounts on refund is not allowed.**', value: "If you have an admin's approval, you may bypass this rule." },
-                    { name: '\:seven: **Earraping in VCs is not allowed.**', value: 'This includes other soundboards and other softwares.' },
+                    { name: '\:seven: **Earraping in VCs is not allowed.**', value: 'This includes other soundboards and softwares.' },
                     { name: '‏‏‎ ‎', value: '‎‎‏‏‎ ‎\:fries: ***We hope you enjoy your visit!*** \:fries:' }
 
                 )
