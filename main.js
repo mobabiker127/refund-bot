@@ -67,7 +67,7 @@ try {
     )
     let guildID = "856174227814875147";
     let channelID = "857636392564424725";
-    let emojiID = "🍴";
+    let emojiID = ":fork_and_knife:";
     let roleID = "856234924465586197";
 
 
@@ -87,7 +87,7 @@ try {
                     for (let reactionObj of message.reactions.cache) {
                         for (let reaction of reactionObj) {
                             if (typeof reaction == "string") continue;
-                            if (reaction.emoji.id != emojiID) continue;
+                            if (reaction.emoji.name != emojiID) continue;
                             reaction.users.fetch()
                                 .then(async users => {
                                     users.forEach(async user => {
