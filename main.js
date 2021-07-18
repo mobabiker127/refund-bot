@@ -42,8 +42,6 @@ try {
     })
 
     client.on('guildMemberRemove', member => {
-        
-        const user = message.mentions.users.first()
 
         const goodbye = member.guild.channels.cache.find(channel => channel.name === '😥│leave-logs')
         goodbye.send(`Goodbye ${member.user.tag}. I hope you enjoyed your visit!`)
