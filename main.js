@@ -74,8 +74,8 @@ try {
         if (user.bot) return;
         if(!reaction.message.guild) return;
     
-        if(reaction.message.channel.id === '857636392564424725'){
-            if(reaction.message.id === '866016557523140608'){
+        if(reaction.message.channel.id === '813826725112447077'){
+            if(reaction.message.id === '866289995874959402'){
             if(reaction.emoji.name === '🍴'){
                 await reaction.message.guild.members.cache.get(user.id).roles.add(role).catch(console.error);
             }  }         
