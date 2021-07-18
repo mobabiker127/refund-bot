@@ -11,7 +11,7 @@ module.exports = {
             const gamesEmoji = '🕹️';
 
             let embed = new Discord.MessageEmbed()
-                .setColor('#EFD011')
+                .setColor('#56F307')
                 .setTitle('React to this to get the Games Role.')
                 .setDescription('You will be notified whenever there is a game night!\n\n'
                     + `${gamesEmoji} Games role\n`);

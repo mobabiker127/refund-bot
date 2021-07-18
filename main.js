@@ -75,7 +75,7 @@ try {
         if(!reaction.message.guild) return;
     
         if(reaction.message.channel.id === '813826725112447077'){
-            if(reaction.message.id === '866289995874959402'){
+            if(reaction.message.id === '866372822796206080'){
             if(reaction.emoji.name === '🍴'){
                 await reaction.message.guild.members.cache.get(user.id).roles.add(customerRole).catch(console.error);
             }  }         
@@ -94,8 +94,8 @@ try {
         if (user.bot) return;
         if(!reaction.message.guild) return;
     
-        if(reaction.message.channel.id === '864168571424473098'){
-            if(reaction.message.id === '866369346473164822'){
+        if(reaction.message.channel.id === '864958460427501578'){
+            if(reaction.message.id === '866373124736024626'){
             if(reaction.emoji.name === '🕹️'){
                 await reaction.message.guild.members.cache.get(user.id).roles.add(gamesRole).catch(console.error);
             }  }         
@@ -114,8 +114,8 @@ try {
         if (user.bot) return;
         if(!reaction.message.guild) return;
     
-        if(reaction.message.channel.id === '864168571424473098'){
-            if(reaction.message.id === '866369374913822760'){
+        if(reaction.message.channel.id === '864958460427501578'){
+            if(reaction.message.id === '866373144113184789'){
             if(reaction.emoji.name === '🎥'){
                 await reaction.message.guild.members.cache.get(user.id).roles.add(moviesRole).catch(console.error);
             }  }         

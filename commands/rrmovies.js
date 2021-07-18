@@ -11,7 +11,7 @@ module.exports = {
             const moviesEmoji = '🎥';
 
             let embed = new Discord.MessageEmbed()
-                .setColor('#EFD011')
+                .setColor('#E507F3')
                 .setTitle('React to this to get the Movies role.')
                 .setDescription('You will be notified whenever there is a movie night!\n\n'
                     + `${moviesEmoji} Movies role\n`);
