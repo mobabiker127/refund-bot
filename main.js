@@ -95,7 +95,7 @@ try {
         if(!reaction.message.guild) return;
     
         if(reaction.message.channel.id === '864958460427501578'){
-            if(reaction.message.id === '866373124736024626'){
+            if(reaction.message.id === '866374386888998933'){
             if(reaction.emoji.name === '🕹️'){
                 await reaction.message.guild.members.cache.get(user.id).roles.add(gamesRole).catch(console.error);
             }  }         
@@ -115,7 +115,7 @@ try {
         if(!reaction.message.guild) return;
     
         if(reaction.message.channel.id === '864958460427501578'){
-            if(reaction.message.id === '866373144113184789'){
+            if(reaction.message.id === '866374372272766987'){
             if(reaction.emoji.name === '🎥'){
                 await reaction.message.guild.members.cache.get(user.id).roles.add(moviesRole).catch(console.error);
             }  }         
