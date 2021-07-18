@@ -1,7 +1,7 @@
 const message = require("../events/message");
 const { catchErr } = require('../handlers/command_handler');
 module.exports = {
-    name: 'eRules',
+    name: 'erules',
     description: "create an embed in a specific channel",
     permissions: ["ADMINISTRATOR"],
     execute(client, message, args, Discord) {
