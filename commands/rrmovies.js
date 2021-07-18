@@ -14,7 +14,7 @@ module.exports = {
                 .setColor('#EFD011')
                 .setTitle('React to this to get the Movies role.')
                 .setDescription('You will be notified whenever there is a movie night!\n\n'
-                    + `${moviesEmoji} Movies role.\n`);
+                    + `${moviesEmoji} Movies role\n`);
 
             let messageEmbed = await message.channel.send(embed);
             messageEmbed.react(moviesEmoji);

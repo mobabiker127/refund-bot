@@ -14,7 +14,7 @@ module.exports = {
                 .setColor('#EFD011')
                 .setTitle('React to this to get the Customer role.')
                 .setDescription('This will allow you to access all channels in this discord server.\n\n'
-                    + `${customerEmoji} Customer role.\n`);
+                    + `${customerEmoji} Customer role\n`);
 
             let messageEmbed = await message.channel.send(embed);
             messageEmbed.react(customerEmoji);

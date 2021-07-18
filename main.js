@@ -67,7 +67,7 @@ try {
     )
     client.on('messageReactionAdd', async (reaction, user) =>{
 
-        const role = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
+        const customerRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
     
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
@@ -77,7 +77,47 @@ try {
         if(reaction.message.channel.id === '813826725112447077'){
             if(reaction.message.id === '866289995874959402'){
             if(reaction.emoji.name === '🍴'){
-                await reaction.message.guild.members.cache.get(user.id).roles.add(role).catch(console.error);
+                await reaction.message.guild.members.cache.get(user.id).roles.add(customerRole).catch(console.error);
+            }  }         
+        } else{
+            return;
+        }
+    
+    });
+
+    client.on('messageReactionAdd', async (reaction, user) =>{
+
+        const gamesRole = reaction.message.guild.roles.cache.find(r => r.name === "Games");
+    
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial) await reaction.fetch();
+        if (user.bot) return;
+        if(!reaction.message.guild) return;
+    
+        if(reaction.message.channel.id === '864168571424473098'){
+            if(reaction.message.id === '866369346473164822'){
+            if(reaction.emoji.name === '🕹️'){
+                await reaction.message.guild.members.cache.get(user.id).roles.add(gamesRole).catch(console.error);
+            }  }         
+        } else{
+            return;
+        }
+    
+    });
+
+    client.on('messageReactionAdd', async (reaction, user) =>{
+
+        const moviesRole = reaction.message.guild.roles.cache.find(r => r.name === "Movies");
+    
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial) await reaction.fetch();
+        if (user.bot) return;
+        if(!reaction.message.guild) return;
+    
+        if(reaction.message.channel.id === '864168571424473098'){
+            if(reaction.message.id === '866369374913822760'){
+            if(reaction.emoji.name === '🎥'){
+                await reaction.message.guild.members.cache.get(user.id).roles.add(moviesRole).catch(console.error);
             }  }         
         } else{
             return;
