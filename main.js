@@ -67,7 +67,7 @@ try {
     )
     let guildID = "856174227814875147";
     let channelID = "857636392564424725";
-    let emojiID = "\:fork;";
+    let emojiID = ":fork;";
     let roleID = "856234924465586197";
 
 
