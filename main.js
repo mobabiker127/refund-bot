@@ -65,34 +65,24 @@ try {
 
     }
     )
-    client.on(
-        'messageReactionAdd',
-        async (potentialPartialReaction, potentialPartialUser) => {
-          try {
-            const reaction = await potentialPartialReaction.fetch();
-            const user = await potentialPartialUser.fetch();
-          } catch (err) {
-            console.log(err);
-          }
-      
-          // can use reaction and user here!
-      });
-      client.on('messageReactionAdd', async (reaction, user) => {
-        // When a reaction is received, check if the structure is partial
-        if (reaction.partial) {
-            // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
-            try {
-                await reaction.fetch();
-            } catch (error) {
-                console.error('Something went wrong when fetching the message: ', error);
-                // Return as `reaction.message.author` may be undefined/null
-                return;
-            }
+    client.on('messageReactionAdd', async (reaction, user) =>{
+
+        const role = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
+    
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial) await reaction.fetch();
+        if (user.bot) return;
+        if(!reaction.message.guild) return;
+    
+        if(reaction.message.channel.id === '857636392564424725'){
+            if(reaction.message.id === '866016557523140608'){
+            if(reaction.emoji.name === '🍴'){
+                await reaction.message.guild.members.cache.get(user.id).roles.add(role).catch(console.error);
+            }  }         
+        } else{
+            return;
         }
-        // Now the message has been cached and is fully available
-        console.log(`${reaction.message.author}'s message "${reaction.message.content}" gained a reaction!`);
-        // The reaction is now also fully available and the properties will be reflected accurately:
-        console.log(`${reaction.count} user(s) have given the same reaction to this message!`);
+    
     });
     
 
