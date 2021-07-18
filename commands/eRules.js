@@ -9,7 +9,7 @@ module.exports = {
             const newEmbed = new Discord.MessageEmbed()
                 .setColor('#fffff')
                 .setTitle('\:taco:__**Refund Discord Rules**__\:taco:.')
-                .setDescription('*Disclaimer: Disobeying Discord TOS will result in a permanent ban. You must follow the rules. *')
+                .setDescription('*Disclaimer: Disobeying Discord TOS will result in a permanent ban. You must follow the rules.*')
                 .addFields(
                     { name: '\:one: **Advertising for communities or other discord servers is not allowed.**', value: 'This includes advertising in DMs. (Advertising in statuses are an exception.)' },
                     { name: '\:two: **Excessive spamming is not allowed.**', value: 'This includes reactions, messages and emojis.' },
