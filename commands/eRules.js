@@ -1,7 +1,7 @@
 const message = require("../events/message");
 const { catchErr } = require('../handlers/command_handler');
 module.exports = {
-    name: 'embed',
+    name: 'eRules',
     description: "create an embed in a specific channel",
     permissions: ["ADMINISTRATOR"],
     execute(client, message, args, Discord) {
@@ -9,14 +9,14 @@ module.exports = {
             const newEmbed = new Discord.MessageEmbed()
                 .setColor('#fffff')
                 .setTitle('\:taco:__**Refund Discord Rules**__\:taco:.')
-                .setDescription('*Disclaimer: Anyone who disobeys Discord ToS will be banned permanently.*')
+                .setDescription('*Disclaimer: Disobeying Discord TOS will result in a permanent ban. You must follow the rules. *')
                 .addFields(
-                    { name: '\:one: **Advertising discord servers or other communities is not allowed.**', value: 'Statuses are an exception.' },
+                    { name: '\:one: **Advertising for communities or other discord servers is not allowed.**', value: 'This includes advertising in DMs. (Advertising in statuses are an exception.)' },
                     { name: '\:two: **Excessive spamming is not allowed.**', value: 'This includes reactions, messages and emojis.' },
                     { name: '\:three: **Use all channels for their purpose.**', value: 'This includes nsfw and bot commands.' },
-                    { name: '\:four: **Unnecessary pings for staff or head chef is not allowed.**', value: 'This includes regular people as well.' },
-                    { name: '\:five: **Sending ipgrabbers or other shady links is not allowed.**', value: 'This does not include YouTube video links, etc.' },
-                    { name: '\:six: **Having more than 2 alt accounts on refund is not allowed.**', value: 'Unless given permission to.' },
+                    { name: '\:four: **Unnecessary pings for staff or head chef is not allowed.**', value: 'They are busy people!' },
+                    { name: '\:five: **Sending ipgrabbers or any of the sort is forbidden.**', value: 'This may result in a permanent ban.' },
+                    { name: '\:six: **Having more than 2 alt accounts on refund is not allowed.**', value: "If you have an admin's approval, you may bypass this rule." },
                     { name: '\:seven: **Earraping in VCs is not allowed.**', value: 'This includes other soundboards and other softwares.' },
                     { name: '‏‏‎ ‎', value: '‎‎‏‏‎ ‎\:fries: ***We hope you enjoy your visit!*** \:fries:' }
 
