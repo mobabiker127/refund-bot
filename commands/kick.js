@@ -4,7 +4,13 @@ module.exports = {
     description: "kicks a member from the server",
     permissions: ["KICK_MEMBERS"],
     execute(client, message, args, Discord) {
+        
         try {
+
+            if(!message.member.hasPermission("KICK_MEMBERS")){
+                return message.reply("You don't have permission to do that.");
+              }
+
             const member = message.mentions.users.first();
             if (member) {
                 const memberTarget = message.guild.members.cache.get(member.id);

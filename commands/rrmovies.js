@@ -5,6 +5,9 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     async execute(client, message, args, Discord) {
         try {
+            if (!message.member.hasPermission("ADMINISTRATOR")) {
+                return message.reply("You don't have permission to do that.");
+            }
             const channel = message.guild.channels.cache.find(ch => ch.name === '📗│custom-roles')
             const moviesRole = message.guild.roles.cache.find(role => role.name === "Movies");
 
@@ -38,9 +41,9 @@ module.exports = {
 
 
         }
-        catch(err) {
+        catch (err) {
             catchErr(err, message);
         }
     }
- 
+
 }

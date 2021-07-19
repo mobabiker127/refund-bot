@@ -5,6 +5,9 @@ module.exports = {
     permissions: ["MANAGE_MESSAGES"],
     execute(client, message, args, Discord) {
         try {
+            if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+                return message.reply("You don't have permission to do that.");
+            }
             const target = message.mentions.users.first();
             if (target) {
                 let mainRole = message.guild.roles.cache.find(role => role.name === 'Customer');
@@ -20,7 +23,7 @@ module.exports = {
                 message.channel.send('Not a valid user.');
             }
         }
-        catch(err) {
+        catch (err) {
             catchErr(err, message);
         }
     }

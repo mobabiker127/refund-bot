@@ -5,6 +5,9 @@ module.exports = {
     permissions: ["MANAGE_MESSAGES"],
     async execute(client, message, args, Discord) {
         try {
+            if(!message.member.hasPermission("MANAGE_MESSAGES")){
+                return message.reply("You don't have permission to do that.");
+              }
             if (!args[0]) return message.reply("Please enter the amount of message you would like to clear.");
             if (isNaN(args[0])) return message.reply("That is not a number.");
 
