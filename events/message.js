@@ -53,9 +53,6 @@ module.exports = (Discord, client, message) =>{
             invalidPerms.push(perm);
           }
         }
-        if (invalidPerms.length){
-          return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
-        }
       }
     
 }
