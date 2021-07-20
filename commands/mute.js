@@ -1,6 +1,5 @@
 const ms = require('ms');
 const { catchErr } = require('../handlers/command_handler');
-const { getUserFromMention } = require('../handlers/command_handler');
 
 module.exports = {
     name: 'mute',
@@ -10,7 +9,7 @@ module.exports = {
 
         try {
 
-            const target = getUserFromMention(args[0]);
+            const target = message.mentions.users.first();
 
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 return message.reply("You don't have permission to do that.");
