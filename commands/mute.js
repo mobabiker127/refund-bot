@@ -10,7 +10,7 @@ module.exports = {
         try {
 
             const target1 = message.mentions.users.first();
-            const target2 = message.guild.member.displayName();
+            const target2 = message.guild.members.get(message.author.id).displayName();
 
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 return message.reply("You don't have permission to do that.");
