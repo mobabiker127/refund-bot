@@ -4,6 +4,20 @@ function catchErrr(err, message) {
     client.users.cache.get("572866958156890115").send("ERROR ```" + err + "```");
 }
 
+function getUserFromMention (mention) {
+    if (!mention) return;
+
+    if (mention.startsWith('<@') && mention.endsWith('>')) {
+        mention = mention.slice(2, -1);
+
+        if (mention.startsWith('!')) {
+            mention = mention.slice(1);
+        }
+
+        return client.users.cache.get(mention);
+    }
+}
+
 
 try {
 
