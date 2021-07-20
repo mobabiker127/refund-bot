@@ -4,13 +4,14 @@ module.exports = {
     description: "just a test",
     permissions: ["ADMINISTRATOR"],
     execute(client, message, args, Discord) {
+        const nigga = message.member.displayname();
         try {
             if (!message.member.hasPermission("ADMINISTRATOR")) {
                 return message.reply("You don't have permission to do that.");
             }
             const newEmbed = new Discord.MessageEmbed()
                 .setColor('#fffff')
-                .setTitle(message.member.displayname)
+                .setTitle(nigga)
                 .setDescription('')
                 .addFields(
                 )
