@@ -34,7 +34,7 @@ try {
 
         const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
         welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
-        guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Queued"));
+        member.roles.add(member.guild.roles.find(role => role.name === "Queued"));
 
 
     })
