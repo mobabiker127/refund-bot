@@ -9,7 +9,7 @@ module.exports = {
 
         try {
 
-            const target = message.mentions.members.first()();
+            const target = message.mentions.members.first();
 
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 return message.reply("You don't have permission to do that.");
