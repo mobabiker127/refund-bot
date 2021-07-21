@@ -127,7 +127,7 @@ try {
 }
 
 catch (err) {
-    catchErrr(err, message);
+    catchErr(err, message);
 }
 
 
