@@ -5,7 +5,7 @@ module.exports = {
     permissions: ["ADMINISTRATOR"],
     execute(client, message, args, Discord) {
         try {
-            const nigga = message.author.username();
+            const nigga = message.guild.member.displayName();
             if (!message.member.hasPermission("ADMINISTRATOR")) {
                 return message.reply("You don't have permission to do that.");
             }
