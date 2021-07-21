@@ -10,7 +10,7 @@ module.exports = {
             }
             const newEmbed = new Discord.MessageEmbed()
                 .setColor('#fffff')
-                .setTitle(message.member.displayName)
+                .setTitle(message.mentions.members.first)
                 .setDescription('')
                 .addFields(
                 )
