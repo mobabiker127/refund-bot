@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Blactose/refundbot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
     "main.js": "^0.0.1",
     "mongoose": "^5.13.3",
     "ms": "^2.1.3"
