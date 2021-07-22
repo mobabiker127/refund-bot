@@ -26,7 +26,7 @@ module.exports = client;
 
 })
 
-mongoose.connect(process.env.MONGODB_SRV, {
+mongoose.connect(process.env.MONGODB_SRVh, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
@@ -57,7 +57,7 @@ client.on('guildMemberRemove', member => {
 
 
 client.on("ready", function () {
-    console.log(`Refund.`);
+    console.log(`Refund Bot is online.`);
 
     const peopleIn = client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
 
