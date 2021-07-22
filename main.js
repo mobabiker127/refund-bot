@@ -4,10 +4,6 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 
 const mongoose = require('mongoose');
 
-const { MongoClient } = require('mongodb');
-
-//
-
 const ms = require('ms');
 const prefix = '?';
 
@@ -26,7 +22,7 @@ module.exports = client;
 
 })
 
-mongoose.connect(process.env.MONGODB_SRVh, {
+mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
