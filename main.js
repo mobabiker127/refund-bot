@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 
-const dotenv = require('dotenv').config();
-
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 const mongoose = require('mongoose');
+
+const { MongoClient } = require('mongodb');
 
 //
 
@@ -57,7 +57,7 @@ client.on('guildMemberRemove', member => {
 
 
 client.on("ready", function () {
-    console.log(`Refund Bot is online.`);
+    console.log(`Refund Bot is online.`); 
 
     const peopleIn = client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
 
