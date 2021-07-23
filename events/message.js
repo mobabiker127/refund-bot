@@ -19,16 +19,23 @@ module.exports = (Discord, client, message) =>{
   const cooldown_amount = (command.cooldown) * 1000;
 
   if(time_stamps.has(message.author.id)){
-      const expiration_time = time_stamps.get (message.author.id) + cooldown_amount;
+      const expiration_time = time_stamps.get(message.author.id) + cooldown_amount;
       if(current_time < expiration_time){
           const time_left = (expiration_time - current_time) / 1000;
 
-          return message.reply(`You cannot use this command for ${time_left.toFixed(0)} seconds.`)
+          return message.reply(`You cannot use this command for ${time_left.toFixed(0)} seconds.`);
       }
   }
 
   time_stamps.set(message.author.id, current_time);
   setTimeout(() => time_stamps.delete(message.author.id), cooldown_amount);
+
+  try{
+    command.execute(message, args, cmd, client, Discord);
+} catch (err){
+    message.reply("There was an error trying to execute this command!");
+    console.log(err);
+}
 
     const validPermissions = [
         "CREATE_INSTANT_INVITE",
