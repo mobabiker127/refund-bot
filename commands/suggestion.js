@@ -9,7 +9,7 @@ module.exports = {
             if(!channel) return message.channel.send('Cannot find suggestions channel.');
 
             let messageArgs = args.join(' ');
-            const embed = new Discord.messageEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#00000')
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic:true }))
             .setDescription(messageArgs);
