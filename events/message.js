@@ -6,10 +6,24 @@ module.exports = (Discord, client, message) => {
   const cmd = args.shift().toLowerCase();
 
   const command = client.commands.get(cmd);
+
   if (command) command.execute(client, message, args, Discord);
+
   if (!command) return;
 
-}
+  if (command.permissions.length) {
+    let invalidPerms = []
+    for (const perm of command.permissions) {
+      if (!validPermissions.includes(perm)) {
+        return console.log(`Invalid Permissions ${perm}`);
+      }
+      if (!message.member.hasPermission(perm)) {
+        invalidPerms.push(perm);
+      }
+    }
+  }
+
+
 
 const validPermissions = [
   "CREATE_INSTANT_INVITE",
@@ -45,16 +59,6 @@ const validPermissions = [
   "MANAGE_EMOJIS",
 ]
 
-  if (command.permissions.length) {
-    let invalidPerms = []
-    for (const perm of command.permissions) {
-      if (!validPermissions.includes(perm)) {
-       return console.log(`Invalid Permissions ${perm}`);
-     }
-     if (!message.member.hasPermission(perm)) {
-       invalidPerms.push(perm);
-    }
-  }
+
+
 }
-
-
