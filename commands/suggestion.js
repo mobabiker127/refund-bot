@@ -2,6 +2,7 @@ const { catchErr } = require('../handlers/command_handler');
 module.exports = {
     name: 'suggest',
     description: "sends a suggestion in a specific channel",
+    cooldown: 60,
     permissions: [],
     execute(client, message, args, Discord) {
         try {
