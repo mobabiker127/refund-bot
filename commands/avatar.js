@@ -17,7 +17,7 @@ module.exports = {
                 const user = message.mentions.users.first()
                 embed.setTitle(`${user.tag}'s Avatar`)
                 embed.setDescription(`They should really change it. `)
-                embed.setColor("#F3E107")
+                embed.setColor("#00000")
                 embed.setImage(user.displayAvatarURL({ size: 4096, dynamic: true }))
                 return message.channel.send(embed)
             }
