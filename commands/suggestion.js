@@ -4,7 +4,7 @@ module.exports = {
     cooldown: 60,
     description: "sends a suggestion in a specific channel",
     permissions: [],
-    execute(client, message, args, Discord) {
+    execute(message, args, client, Discord) {
         try {
             const channel = message.guild.channels.cache.find(c => c.name === '📫・suggestions');
 
