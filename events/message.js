@@ -1,4 +1,4 @@
-module.exports = (client, message, Discord) =>{
+module.exports = (client, Discord) =>{
     const prefix = '?';
     const cooldowns = new Map();
     if(!message.content.startsWith(prefix) || message.author.bot) return;
