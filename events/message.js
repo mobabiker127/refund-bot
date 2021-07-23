@@ -1,6 +1,8 @@
 module.exports = (Discord, client, message) => {
   const cooldowns = new Map();
   const prefix = '?';
+  let recentlyRan = [];
+  let cooldown = -1;
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
@@ -11,6 +13,23 @@ module.exports = (Discord, client, message) => {
   if (command) command.execute(client, message, args, Discord);
 
   if (!command) return;
+  let cooldownString  = ' '
+  if (cooldown > 0 & recentlyRan.includes(cooldownString)) {
+    message.reply('You cannot use this command so soon, please wait.')
+    return
+  }
+  
+  if (cooldown > 0){
+    recentlyRan.push(cooldownString)
+
+    setTimeout(() => {
+      console.log('Before:', recentlyRan)
+      recentlyRan = recentlyRan.filter((string) => {
+        return string !== cooldownString
+      })
+      console.log('After:', recentlyRan)
+    }, 1000 * cooldownString)
+  }
 
   const validPermissions = [
     "CREATE_INSTANT_INVITE",
