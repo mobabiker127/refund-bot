@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['suggest', 'suggestion'],
-    cooldown: 60,
+    cooldown: 60 * 1000,
     permissions: ['ADMINISTRATOR'],
     callback: (message, arguments, text) => {
 
