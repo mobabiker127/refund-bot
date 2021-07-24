@@ -1,10 +1,10 @@
-
+const Discord = require('discord.js')
 module.exports = {
     commands: ['av', 'avatar'],
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    callback: (Discord, message, arguments, text) => {
+    callback: (message, arguments, text) => {
 
         const embed = new Discord.MessageEmbed()
 
