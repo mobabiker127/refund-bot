@@ -1,4 +1,4 @@
-const { catchErr } = require('../command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
     name: 'av',
     description: "displays a users avatar in the server",
