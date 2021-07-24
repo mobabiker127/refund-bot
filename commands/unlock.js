@@ -1,10 +1,11 @@
-
+const Discord = require('discord.js');
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['unlock'],
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    async callback(client, message, args, Discord) {
+    async callback(message, arguments, text) {
 
         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You do not have permissions to run this command.')
 

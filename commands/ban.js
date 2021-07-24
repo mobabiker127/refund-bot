@@ -1,10 +1,11 @@
-
+const Discord = require('discord.js');
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['ban'],
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    callback: (client, message, args, Discord) => {
+    callback: (message, arguments, text) => {
 
 
         if (!message.member.hasPermission("ADMINISTRATOR")) {

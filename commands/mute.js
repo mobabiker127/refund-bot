@@ -1,11 +1,12 @@
+const Discord = require('discord.js');
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 const ms = require('ms');
-
 module.exports = {
     commands: ['mute', 'silence'],
     minArgs: 1,
     maxArgs: 3,
     permissions: ['ADMINISTRATOR'],
-    callback: (client, message, args, Discord) => {
+    callback: (message, arguments, text) => {
 
 
 

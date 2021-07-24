@@ -1,10 +1,11 @@
-
+const Discord = require('discord.js');
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['clear', 'purge'],
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    async callback(client, message, args, Discord) {
+    async callback(message, arguments, text) {
 
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
             return message.reply("You don't have permission to do that.");
