@@ -54,7 +54,7 @@ module.exports = (client, commandOptions) => {
         permissionError = 'You do not have permission to run this command.',
         minArgs = 0,
         maxArgs = null,
-        cooldown = used.get(message.author.id),
+        cooldown = -1,
         permissions = [],
         requiredRoles = [],
         callback
@@ -95,10 +95,9 @@ module.exports = (client, commandOptions) => {
                     }
 
                 }
-                const timeLeft = Duration(cooldown - Date.now(), { units: ['h', 'm', 's'], round: true })
                 let cooldownString  = ''
                 if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
-                    message.reply(`You must wait ${timeLeft} seconds before using this command again.`)
+                    message.reply(`You must wait before using this command again.`)
                     return
                 }
 
