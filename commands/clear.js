@@ -1,4 +1,4 @@
-const { catchErr } = require('../commands/command_base');
+const { catchErr } = require('../commands/error');
 module.exports = {
     commands: ['clear' , 'purge'],
     minArgs: 0,

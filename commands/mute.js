@@ -1,5 +1,5 @@
 const ms = require('ms');
-const { catchErr } = require('../commands/command_base');
+const { catchErr } = require('../commands/error');
 module.exports = {
     commands: ['mute' , 'silence'],
     minArgs: 1,
