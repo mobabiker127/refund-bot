@@ -8,7 +8,7 @@ module.exports = {
 
         const channel = message.guild.channels.cache.find(c => c.name === '📫・suggestions');
 
-        let messageArgs = args.join(' ');
+        let messageArgs = arguments.join(' ');
         const embed = new Discord.MessageEmbed()
             .setColor('#00000')
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
