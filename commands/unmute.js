@@ -1,4 +1,4 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../command_base.js');
 module.exports = {
     name: 'unmute',
     description: "Unmutes a member in the server.",
