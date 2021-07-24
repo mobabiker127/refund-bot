@@ -11,7 +11,7 @@ module.exports = {
         if (!message.mentions.users.first()) {
             embed.setTitle("Your Avatar:")
             embed.setDescription("Your avatar is looking sexy.")
-            embed.setColor("#F3E107")
+            embed.setColor("#00000")
             embed.setImage(message.author.displayAvatarURL({ size: 4096, dynamic: true }))
             return message.channel.send(embed)
         } else {
