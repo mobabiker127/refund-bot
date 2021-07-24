@@ -3,7 +3,6 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 module.exports = {
     commands: ['suggest', 'suggestion'],
     minArgs: 1,
-    expectedArgs: '<suggestion>',
     permissions: ['ADMINISTRATOR'],
     callback: (message, arguments, text) => {
 
