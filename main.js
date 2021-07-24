@@ -17,7 +17,6 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
 module.exports = client;
-module.exports = Discord;
 
 mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
