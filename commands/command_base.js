@@ -95,7 +95,7 @@ module.exports = (client, commandOptions) => {
 
                 }
 
-                let cooldownString  = ' '
+                let cooldownString  = ''
                 if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
                     message.reply(`You must wait ${timeLeft.toFixed(0)} seconds before using this command again.`)
                     return
@@ -121,7 +121,7 @@ module.exports = (client, commandOptions) => {
                             return string !== cooldownString
                         })
                         console.log('After:', recentlyRan)
-                    }, 1000 * cooldownString)
+                    }, 1000 * cooldown)
                 }
 
                 callback(message, arguments, arguments.join(' '))
