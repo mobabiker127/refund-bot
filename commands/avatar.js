@@ -1,9 +1,11 @@
 const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'av',
-    description: "displays a users avatar in the server",
-    permissions: ["SEND_MESSAGES"],
-    execute(client, message, args, Discord) {
+    commands: ['av' , 'avatar'],
+    permissionError = 'You need admin permissions to run this command.',
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             const embed = new Discord.MessageEmbed()
 
