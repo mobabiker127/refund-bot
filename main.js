@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
+const path = require('path');
+
 const mongoose = require('mongoose');
 
 const ms = require('ms');
@@ -15,11 +17,6 @@ client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
 module.exports = client;
-
-['command_handler', 'event_handler'].forEach(handler => {
-    require(`./handlers/${handler}`)(client, Discord);
-
-})
 
 mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
@@ -64,7 +61,26 @@ client.on("ready", function () {
         status: 'idle'
     })
         .catch(console.error);
+    
+    const baseFile = 'command_base.js'
+    const commandBase = require(`/commands/${baseFile}`)
 
+    const readCommands = dir => {
+        const files = fs.readdirSync(path.join(__dirname, dir))
+        for (const file of files) {
+            const stat = fs.lstatSync(path.join(__dirname, dir, file))
+            if (stat.isDirectory()) {
+                readCommands(path.join(dir, file))
+            } else if (file !== baseFile){
+                const option = require(path.join(__dirname, dir, file))
+                console.log(file, option)
+                commandBase(client, option)
+            }
+            
+        }
+    }
+
+    readCommands('commands')
 }
 )
 client.on('messageReactionAdd', async (reaction, user) => {

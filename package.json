@@ -2,6 +2,7 @@
   "name": "refundbot",
   "version": "1.0.0",
   "description": "",
+  "prefix": "?",
   "main": "main.js",
   "devDependencies": {},
   "scripts": {
