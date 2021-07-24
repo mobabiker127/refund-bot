@@ -1,7 +1,6 @@
 const { catchErr } = require('../commands/command_base');
 module.exports = {
     commands: ['av' , 'avatar'],
-    permissionError = 'You need admin permissions to run this command.',
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
