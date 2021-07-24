@@ -1,4 +1,4 @@
-const { catchErr } = require('../commands/error');
+const { catchErr } = require('../main');
 module.exports = {
     commands: ['unmute'],
     minArgs: 1,
