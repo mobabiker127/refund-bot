@@ -72,7 +72,7 @@ module.exports = (client, commandOptions) => {
     client.on('message', message => {
         const { member, content, guild } = message
 
-        for(const alis of commands) {
+        for(const alias of commands) {
             if (content.toLowerCase().startsWith(`${prefix}${alias.toLowerCase()}`)) {
 
                 for (const permission of permissions) {
