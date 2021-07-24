@@ -1,5 +1,5 @@
 const message = require("../events/message");
-const { catchErr } = require('../handlers/command_handler');
+const { catchErr } = require('./commands/command_base.js');
 module.exports = {
     name: 'erules',
     description: "create an embed in a specific channel",

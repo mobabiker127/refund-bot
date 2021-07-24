@@ -1,4 +1,4 @@
-const { catchErr } = require('../handlers/command_handler');
+const { catchErr } = require('./commands/command_base.js');
 module.exports = {
     name: 'ban',
     description: "bans a member from the server",

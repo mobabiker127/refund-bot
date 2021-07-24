@@ -1,5 +1,5 @@
 const ms = require('ms');
-const { catchErr } = require('../handlers/command_handler');
+const { catchErr } = require('./commands/command_base.js');
 
 module.exports = {
     name: 'mute',

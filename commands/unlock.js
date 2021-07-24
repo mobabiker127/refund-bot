@@ -1,4 +1,4 @@
-const { catchErr } = require('../handlers/command_handler');
+const { catchErr } = require('./commands/command_base.js');
 module.exports = {
     name: 'unlock',
     description: "unlocks a channel for other users",

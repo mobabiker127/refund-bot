@@ -1,4 +1,4 @@
-const { catchErr } = require('../handlers/command_handler');
+const { catchErr } = require('./commands/command_base.js');
 module.exports = {
     name: 'rrverify',
     description: "allows a user to react and receive a role.",
