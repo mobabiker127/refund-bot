@@ -122,8 +122,8 @@ module.exports = (client, commandOptions) => {
                             return string !== cooldownString
                         })
                         console.log('After:', recentlyRan)
-                    }, cooldown * 1000)
-                }
+                    }, (cooldown/1000)
+                    )}
 
                 callback(message, arguments, arguments.join(' '))
 
