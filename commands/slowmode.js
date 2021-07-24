@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'slowmode',
-    description: "activates a message cooldown in a specific channel",
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(client, message, args, Discord) {
+    commands: ['slowmode', 'slow'],
+    minArgs: 1,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 return message.reply("You don't have permission to do that.");

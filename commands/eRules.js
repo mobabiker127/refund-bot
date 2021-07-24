@@ -1,10 +1,10 @@
-const message = require("../events/message");
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'erules',
-    description: "create an embed in a specific channel",
-    permissions: ["ADMINISTRATOR"],
-    execute(client, message, args, Discord) {
+    commands: ['erules'],
+    minArgs: 0,
+    maxArgs: 0,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             if (!message.member.hasPermission("ADMINISTRATOR")) {
                 return message.reply("You don't have permission to do that.");

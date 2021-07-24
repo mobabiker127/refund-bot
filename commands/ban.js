@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'ban',
-    description: "bans a member from the server",
-    permissions: ["ADMINISTRATOR"],
-    execute(client, message, args, Discord) {
+    commands: ['ban'],
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
 
             if (!message.member.hasPermission("ADMINISTRATOR")) {

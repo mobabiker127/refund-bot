@@ -1,9 +1,10 @@
-const { catchErr } = require('../command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'unmute',
-    description: "Unmutes a member in the server.",
-    permissions: ["MANAGE_MESSAGES"],
-    execute(client, message, args, Discord) {
+    commands: ['unmute'],
+    minArgs: 1,
+    maxArgs: 2,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
                 return message.reply("You don't have permission to do that.");

@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'purge',
-    description: "clears a certain ammount of messages",
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(client, message, args, Discord) {
+    commands: ['clear' , 'purge'],
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             if(!message.member.hasPermission("MANAGE_MESSAGES")){
                 return message.reply("You don't have permission to do that.");

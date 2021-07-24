@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'refund',
-    description: "tells you how much we refund",
-    permissions: ["SEND_MESSAGES"],
-    execute(client, message, args, Discord) {
+    commands: ['refund'],
+    minArgs: 0,
+    maxArgs: 0,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             message.channel.send('`We do not do refunds here.`');
         }

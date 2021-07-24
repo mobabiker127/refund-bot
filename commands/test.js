@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'test',
-    description: "just a test",
-    permissions: ["ADMINISTRATOR"],
-    execute(client, message, args, Discord) {
+    commands: ['test'],
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             if (!message.member.hasPermission("ADMINISTRATOR")) {
                 return message.reply("You don't have permission to do that.");

@@ -1,10 +1,9 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'suggest',
-    cooldown: 60,
-    description: "sends a suggestion in a specific channel",
-    permissions: [],
-    execute(client, message, args, Discord) {
+    commands: ['suggest'],
+    minArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             const channel = message.guild.channels.cache.find(c => c.name === '📫・suggestions');
 

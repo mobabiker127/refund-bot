@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'lock',
-    description: "locks a channel for other users",
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(client, message, args, Discord) {
+    commands: ['lock' , 'lockdown'],
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             if(!message.member.hasPermission("MANAGE_MESSAGES")){
                 return message.reply("You don't have permission to do that.");

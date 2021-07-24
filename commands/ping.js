@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'ping',
-    description: "ping da pong",
-    permissions: ["SEND_MESSAGES"],
-    execute(client, message, args, Discord) {
+    commands: ['ping'],
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         try {
             message.channel.send('pong')
         }

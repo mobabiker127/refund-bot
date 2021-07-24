@@ -1,11 +1,11 @@
 const ms = require('ms');
-const { catchErr } = require('./commands/command_base.js');
-
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'mute',
-    description: "Mutes a member in the server.",
-    permissions: ["MANAGE_MESSAGES"],
-    execute(client, message, args, Discord) {
+    commands: ['mute' , 'silence'],
+    minArgs: 1,
+    maxArgs: 3,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
 
         try {
 

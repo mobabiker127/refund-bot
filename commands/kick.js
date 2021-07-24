@@ -1,9 +1,10 @@
-const { catchErr } = require('./commands/command_base.js');
+const { catchErr } = require('../commands/command_base');
 module.exports = {
-    name: 'kick',
-    description: "kicks a member from the server",
-    permissions: ["KICK_MEMBERS"],
-    execute(client, message, args, Discord) {
+    commands: ['kick' , 'boot'],
+    minArgs: 0,
+    maxArgs: 1,
+    permissions: ['ADMINISTRATOR'],
+    callback: (client, message, args, Discord) => {
         
         try {
 
