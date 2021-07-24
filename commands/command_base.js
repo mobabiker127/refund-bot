@@ -1,7 +1,7 @@
 const { prefix } = require('../package.json')
 
 const validatePermissions = (permissions) => {
-    const validatePermissions = [
+    const validPermissions = [
         "CREATE_INSTANT_INVITE",
         "KICK_MEMBERS",
         "BAN_MEMBERS",
