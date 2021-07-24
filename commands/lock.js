@@ -4,7 +4,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    callback: (client, message, args, Discord) => {
+    async callback(client, message, args, Discord) {
         try {
             if(!message.member.hasPermission("MANAGE_MESSAGES")){
                 return message.reply("You don't have permission to do that.");

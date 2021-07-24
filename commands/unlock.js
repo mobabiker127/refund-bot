@@ -4,7 +4,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    callback: (client, message, args, Discord) => {
+    async callback(client, message, args, Discord) {
         try {
             if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You do not have permissions to run this command.')
 
