@@ -43,7 +43,7 @@ const validatePermissions = (permissions) => {
 
 }
 
-let recentlyRan = [];
+let recentlyRan = []
 
 
 module.exports = (client, commandOptions) => {
@@ -96,8 +96,8 @@ module.exports = (client, commandOptions) => {
                 }
 
                 let cooldownString  = ' '
-                if (cooldown > 0 & recentlyRan.includes(cooldownString)) {
-                    message.reply('You cannot use this command so soon, please wait.')
+                if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
+                    message.reply(`You must wait ${timeLeft.toFixed(0)} seconds before using this command again.`)
                     return
                 }
 
@@ -105,11 +105,12 @@ module.exports = (client, commandOptions) => {
 
                 arguments.shift()
 
-                if (arguments.length < minArgs || (
-                    maxArgs !== null & arguments.length > maxArgs
-                )) {
+                if (arguments.length < minArgs || 
+                    (maxArgs !== null & arguments.length > maxArgs)
+                ) {
                     message.reply(`Format: ${prefix}${alias} ${expectedArgs}`)
-                }
+                return
+            }
 
                 if (cooldown > 0) {
                     recentlyRan.push(cooldownString)
@@ -127,7 +128,9 @@ module.exports = (client, commandOptions) => {
 
                 return
             }
+            
         }
+    
     })
     
 }
