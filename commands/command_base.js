@@ -1,4 +1,5 @@
 const { prefix } = require('../package.json')
+const moment = require('humanize-duration');
 
 const validatePermissions = (permissions) => {
     const validPermissions = [
