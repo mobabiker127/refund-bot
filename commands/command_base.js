@@ -1,4 +1,5 @@
 const { prefix } = require('../package.json')
+const remaining = humanizeDuration(cooldown - Date.now());
 
 const validatePermissions = (permissions) => {
     const validPermissions = [
@@ -97,7 +98,7 @@ module.exports = (client, commandOptions) => {
 
                 let cooldownString  = ''
                 if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
-                    message.reply(`You must wait ${timeLeft.toFixed(0)} seconds before using this command again.`)
+                    message.reply(`You must wait ${remaining(0)} seconds before using this command again.`)
                     return
                 }
 
