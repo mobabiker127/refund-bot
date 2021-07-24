@@ -3,7 +3,6 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 module.exports = {
     commands: ['lock', 'lockdown'],
     minArgs: 0,
-    maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
     async callback(message, arguments, text) {
 
