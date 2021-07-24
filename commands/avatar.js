@@ -4,9 +4,9 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    callback: (message, arguments, text) => {
+    callback: (Discord, message, arguments, text) => {
 
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
 
         if (!message.mentions.users.first()) {
             embed.setTitle("Your Avatar:")
