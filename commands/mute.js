@@ -22,7 +22,7 @@ module.exports = {
 
             let memberTarget = message.guild.members.cache.get(target.id);
 
-            if (!args[1]) {
+            if (!arguments[1]) {
                 memberTarget.roles.add(muteRole.id);
                 message.channel.send(`<@${memberTarget.user.id}> has been muted indefinitely.`);
                 return
@@ -32,7 +32,7 @@ module.exports = {
 
             setTimeout(function () {
                 memberTarget.roles.remove(muteRole.id);
-            }, ms(args[1]));
+            }, ms(arguments[1]));
 
         }
         else {
