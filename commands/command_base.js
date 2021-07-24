@@ -54,7 +54,7 @@ module.exports = (client, commandOptions) => {
         permissionError = 'You do not have permission to run this command.',
         minArgs = 0,
         maxArgs = null,
-        cooldown = -1,
+        cooldown = used.get(message.author.id),
         permissions = [],
         requiredRoles = [],
         callback
