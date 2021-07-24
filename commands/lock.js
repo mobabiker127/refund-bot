@@ -14,7 +14,7 @@ module.exports = {
 
         const role = message.guild.roles.cache.find(role => role.name === "Customer");
 
-        let lockChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
+        let lockChannel = message.mentions.channels.first() || message.guild.channels.cache.get(arguments[0]);
         if (!lockChannel) lockChannel = message.channel;
 
         await lockChannel.updateOverwrite(role, {
