@@ -1,46 +1,43 @@
 const ms = require('ms');
-const { catchErr } = require('../main');
+
 module.exports = {
-    commands: ['mute' , 'silence'],
+    commands: ['mute', 'silence'],
     minArgs: 1,
     maxArgs: 3,
     permissions: ['ADMINISTRATOR'],
     callback: (client, message, args, Discord) => {
 
-        try {
 
-            const target = message.mentions.members.first();
 
-            if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-                return message.reply("You don't have permission to do that.");
-            }
+        const target = message.mentions.members.first();
 
-            if (target) {
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+            return message.reply("You don't have permission to do that.");
+        }
 
-                let muteRole = message.guild.roles.cache.find(role => role.name === 'Muted');
+        if (target) {
 
-                let memberTarget = message.guild.members.cache.get(target.id);
+            let muteRole = message.guild.roles.cache.find(role => role.name === 'Muted');
 
-                if (!args[1]) {
-                    memberTarget.roles.add(muteRole.id);
-                    message.channel.send(`<@${memberTarget.user.id}> has been muted indefinitely.`);
-                    return
-                }
+            let memberTarget = message.guild.members.cache.get(target.id);
+
+            if (!args[1]) {
                 memberTarget.roles.add(muteRole.id);
-                message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}.`);
-
-                setTimeout(function () {
-                    memberTarget.roles.remove(muteRole.id);
-                }, ms(args[1]));
-
+                message.channel.send(`<@${memberTarget.user.id}> has been muted indefinitely.`);
+                return
             }
-            else {
-                message.channel.send('Not a valid user.');
-            }
+            memberTarget.roles.add(muteRole.id);
+            message.channel.send(`<@${memberTarget.user.id}> has been muted for ${ms(ms(args[1]))}.`);
+
+            setTimeout(function () {
+                memberTarget.roles.remove(muteRole.id);
+            }, ms(args[1]));
+
         }
-        catch (err) {
-            catchErr(err, message);
+        else {
+            message.channel.send('Not a valid user.');
         }
+
     }
 
 

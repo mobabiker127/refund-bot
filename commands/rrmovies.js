@@ -1,50 +1,47 @@
-const { catchErr } = require('../main');
+
 module.exports = {
     commands: ['rrmovies'],
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
     async callback(client, message, args, Discord) {
-        try {
-            if (!message.member.hasPermission("ADMINISTRATOR")) {
-                return message.reply("You don't have permission to do that.");
-            }
-            const channel = message.guild.channels.cache.find(ch => ch.name === '📗│custom-roles')
-            const moviesRole = message.guild.roles.cache.find(role => role.name === "Movies");
 
-            const moviesEmoji = '🎥';
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
+            return message.reply("You don't have permission to do that.");
+        }
+        const channel = message.guild.channels.cache.find(ch => ch.name === '📗│custom-roles')
+        const moviesRole = message.guild.roles.cache.find(role => role.name === "Movies");
 
-            let embed = new Discord.MessageEmbed()
-                .setColor('#E507F3')
-                .setTitle('React to this to get the Movies role.')
-                .setDescription('You will be notified whenever there is a movie night!\n\n'
-                    + `${moviesEmoji} Movies role\n`);
+        const moviesEmoji = '🎥';
 
-            let messageEmbed = await message.channel.send(embed);
-            messageEmbed.react(moviesEmoji);
+        let embed = new Discord.MessageEmbed()
+            .setColor('#E507F3')
+            .setTitle('React to this to get the Movies role.')
+            .setDescription('You will be notified whenever there is a movie night!\n\n'
+                + `${moviesEmoji} Movies role\n`);
 
-            client.on('messageReactionAdd', async (reaction, user) => {
-                if (reaction.message.partial) await reaction.message.fetch();
-                if (reaction.partial) await reaction.fetch();
-                if (user.bot) return;
-                if (!reaction.message.guild) return;
+        let messageEmbed = await message.channel.send(embed);
+        messageEmbed.react(moviesEmoji);
 
-                if (reaction.message.channel.id == channel) {
-                    if (reaction.emoji.name === moviesEmoji) {
-                        await reaction.message.guild.members.cache.get(user.id).roles.add(moviesRole);
-                    }
+        client.on('messageReactionAdd', async (reaction, user) => {
+            if (reaction.message.partial) await reaction.message.fetch();
+            if (reaction.partial) await reaction.fetch();
+            if (user.bot) return;
+            if (!reaction.message.guild) return;
 
-                } else {
-                    return;
+            if (reaction.message.channel.id == channel) {
+                if (reaction.emoji.name === moviesEmoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(moviesRole);
                 }
 
-            });
+            } else {
+                return;
+            }
+
+        });
 
 
-        }
-        catch (err) {
-            catchErr(err, message);
-        }
+
     }
 
 }
