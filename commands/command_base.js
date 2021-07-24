@@ -95,7 +95,7 @@ module.exports = (client, commandOptions) => {
                     }
 
                 }
-                const timeLeft = Duration(cooldown - Date.now(), { units: ['h', 'm'], round: true })
+                const timeLeft = Duration(cooldown - Date.now(), { units: ['h', 'm', 's'], round: true })
                 let cooldownString  = ''
                 if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
                     message.reply(`You must wait ${timeLeft} seconds before using this command again.`)
@@ -122,7 +122,7 @@ module.exports = (client, commandOptions) => {
                             return string !== cooldownString
                         })
                         console.log('After:', recentlyRan)
-                    }, cooldown * 1000)
+                    }, cooldown / 1000)
                 }
 
                 callback(message, arguments, arguments.join(' '))
