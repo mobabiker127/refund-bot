@@ -4,7 +4,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    callback: (client, message, args, Discord) => {
+    callback: (message,  arguments, text) => {
 
         const embed = new Discord.MessageEmbed()
 
