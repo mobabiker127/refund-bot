@@ -63,7 +63,7 @@ client.on("ready", function () {
         .catch(console.error);
     
     const baseFile = 'command_base.js'
-    const commandBase = require(`/commands/${baseFile}`)
+    const commandBase = require(`./commands/${baseFile}`)
 
     const readCommands = dir => {
         const files = fs.readdirSync(path.join(__dirname, dir))
