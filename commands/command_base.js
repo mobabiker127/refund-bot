@@ -43,6 +43,9 @@ const validatePermissions = (permissions) => {
 
 }
 
+let recentlyRan = [];
+
+
 module.exports = (client, commandOptions) => {
     let {
         commands,
@@ -50,6 +53,7 @@ module.exports = (client, commandOptions) => {
         permissionError = 'You do not have permission to run this command.',
         minArgs = 0,
         maxArgs = null,
+        cooldown = -1,
         permissions = [],
         requiredRoles = [],
         callback
@@ -91,6 +95,12 @@ module.exports = (client, commandOptions) => {
 
                 }
 
+                let cooldownString  = ' '
+                if (cooldown > 0 & recentlyRan.includes(cooldownString)) {
+                    message.reply('You cannot use this command so soon, please wait.')
+                    return
+                }
+
                 const arguments = content.split(/[ ]+/)
 
                 arguments.shift()
@@ -99,6 +109,18 @@ module.exports = (client, commandOptions) => {
                     maxArgs !== null & arguments.length > maxArgs
                 )) {
                     message.reply(`Format: ${prefix}${alias} ${expectedArgs}`)
+                }
+
+                if (cooldown > 0) {
+                    recentlyRan.push(cooldownString)
+
+                    setTimeout(() => {
+                        console.log('Before:', recentlyRan)
+                        recentlyRan = recentlyRan.filter((string) => {
+                            return string !== cooldownString
+                        })
+                        console.log('After:', recentlyRan)
+                    }, 1000 * cooldownString)
                 }
 
                 callback(message, arguments, arguments.join(' '))
