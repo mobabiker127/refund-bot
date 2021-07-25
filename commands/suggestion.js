@@ -7,7 +7,8 @@ module.exports = {
 
         const channel = message.guild.channels.cache.find(c => c.name === '📫・suggestions');
 
-        if (!arguments[0]) return message.lineReply("You cannot send empty suggestions.")
+        if (!arguments[0]) return message.reply("You cannot send empty suggestions.").then(msg => {
+            setTimeout(() => msg.delete(), 5000)})
 
         let messageArgs = arguments.join(' ');
         const embed = new Discord.MessageEmbed()
