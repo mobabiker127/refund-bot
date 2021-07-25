@@ -18,16 +18,6 @@ client.events = new Discord.Collection();
 
 module.exports = client;
 
-mongoose.connect(process.env.MONGODB_SRV, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-}).then(() => {
-    console.log('Connected to the database.')
-}).catch((err) => {
-    console.log(err);
-});
-
 
 client.on('guildMemberAdd', member => {
 
