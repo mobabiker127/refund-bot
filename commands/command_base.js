@@ -105,9 +105,6 @@ module.exports = (client, commandOptions) => {
                 
                   return message.channel.send(`You have to wait ${remaining} before you can work again`)
                     .catch(console.error);
-                }{
-                    message.reply(`You must wait ${timeLeft} before using this command again.`)
-                    return
                 }
 
                 const arguments = content.split(/[ ]+/)
