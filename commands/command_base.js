@@ -1,6 +1,4 @@
 const { prefix } = require('../package.json')
-const used = new Map()
-const Duration = require('humanize-duration')
 
 const validatePermissions = (permissions) => {
     const validPermissions = [
@@ -96,15 +94,14 @@ module.exports = (client, commandOptions) => {
                     }
 
                 }
-                const humanizeDuration = require('humanize-duration');
 
-                // Replace the  if (talkedRecently.has(...))  part with this...
-                const cooldown = used.get(message.author.id);
-                if (cooldown) {
-                  const remaining = humanizeDuration(cooldown - Date.now());
-                
-                  return message.channel.send(`You have to wait ${remaining} before you can work again`)
-                    .catch(console.error);
+                let cooldownString  = ''
+                if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
+                    message.channel.send({embed: {
+                        description: 'Command cooldown: ' + cooldown + 'seconds.' ,
+                        color: '#00000'
+                    }})
+                    return
                 }
 
                 const arguments = content.split(/[ ]+/)
@@ -117,6 +114,18 @@ module.exports = (client, commandOptions) => {
                     message.reply(`Format: ${prefix}${alias} ${expectedArgs}`)
                 return
             }
+
+                if (cooldown > 0) {
+                    recentlyRan.push(cooldownString)
+
+                    setTimeout(() => {
+                        console.log('Before:', recentlyRan)
+                        recentlyRan = recentlyRan.filter((string) => {
+                            return string !== cooldownString
+                        })
+                        console.log('After:', recentlyRan)
+                    }, cooldown
+                    )}
 
                 callback(message, arguments, arguments.join(' '))
 
