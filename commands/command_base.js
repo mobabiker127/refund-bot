@@ -1,5 +1,5 @@
 const { prefix } = require('../package.json')
-
+const Discord = require('discord.js')
 const validatePermissions = (permissions) => {
     const validPermissions = [
         "CREATE_INSTANT_INVITE",
@@ -97,12 +97,10 @@ module.exports = (client, commandOptions) => {
 
                 let cooldownString  = ''
                 if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
-                    message.reply({embed: {
+                    message.lineReply({embed: {
                         description: 'Command cooldown: ' + cooldown/1000 + ' seconds.' ,
                         color: '#00000'
-                    }}).then(msg => {
-                        setTimeout(() => msg.delete(), 10000)
-                      })
+                    }})
                     return
                 }
 
