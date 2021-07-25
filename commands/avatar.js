@@ -1,4 +1,4 @@
-
+const Discord = require('../main')
 module.exports = {
     commands: ['av', 'avatar'],
     minArgs: 0,
