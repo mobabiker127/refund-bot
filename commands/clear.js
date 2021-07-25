@@ -16,7 +16,7 @@ module.exports = {
         if (arguments[0] > 100) return message.reply("You cannot delete more than 100 messages.");
         if (arguments[0] < 1) return message.reply("You must delete atleast 1 message.")
 
-        await message.channel.messages.fetch({ limit: arguments[0]+1 }).then(messages => {
+        await message.channel.messages.fetch({ limit: arguments[0] }).then(messages => {
             message.channel.bulkDelete(messages);
         });
 
