@@ -98,7 +98,7 @@ module.exports = (client, commandOptions) => {
                 let cooldownString  = ''
                 if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
                     message.channel.send({embed: {
-                        description: 'Command cooldown: ' + cooldown/1000 + 'seconds.' ,
+                        description: 'Command cooldown: ' + cooldown/1000 + ' seconds.' ,
                         color: '#00000'
                     }})
                     return
