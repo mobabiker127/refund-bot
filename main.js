@@ -2,6 +2,12 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
+const EventEmitter = require('events')
+
+const emitter = new EventEmitter()
+
+EventEmitter.defaultMaxListeners = 50
+
 const path = require('path');
 
 const mongoose = require('mongoose');
