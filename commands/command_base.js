@@ -100,7 +100,9 @@ module.exports = (client, commandOptions) => {
                     message.reply({embed: {
                         description: 'Command cooldown: ' + cooldown/1000 + ' seconds.' ,
                         color: '#00000'
-                    }})
+                    }}).then(msg => {
+                        setTimeout(() => msg.delete(), 5000)
+                      })
                     return
                 }
 
