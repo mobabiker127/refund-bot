@@ -4,6 +4,7 @@ module.exports = {
     commands: ['ban'],
     minArgs: 0,
     maxArgs: 1,
+    expectedArgs: '<member>',
     permissions: ['BAN_MEMBERS'],
     callback: (message, arguments, text) => {
 

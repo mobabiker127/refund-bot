@@ -5,6 +5,7 @@ module.exports = {
     commands: ['mute', 'silence'],
     minArgs: 1,
     maxArgs: 3,
+    expectedArgs: '<member> [time]',
     permissions: ['MANAGE_MESSAGES'],
     callback: (message, arguments, text) => {
 

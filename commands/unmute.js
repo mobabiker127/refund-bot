@@ -4,6 +4,7 @@ module.exports = {
     commands: ['unmute'],
     minArgs: 1,
     maxArgs: 2,
+    expectedArgs: '<member>',
     permissions: ['MANAGE_MESSAGES'],
     callback: (message, arguments, text) => {
 
