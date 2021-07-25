@@ -5,7 +5,7 @@ module.exports = {
     commands: ['mute', 'silence'],
     minArgs: 1,
     maxArgs: 3,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['MANAGE_MESSAGES'],
     callback: (message, arguments, text) => {
 
 

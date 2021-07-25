@@ -4,7 +4,7 @@ module.exports = {
     commands: ['slowmode', 'slow'],
     minArgs: 1,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['MANAGE_MESSAGES'],
     callback: (message, arguments, text) => {
 
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {

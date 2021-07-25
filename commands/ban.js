@@ -4,11 +4,11 @@ module.exports = {
     commands: ['ban'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['BAN_MEMBERS'],
     callback: (message, arguments, text) => {
 
 
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (!message.member.hasPermission("BAN_MEMBERS")) {
             return message.reply("You don't have permission to do that.");
         }
         const member = message.mentions.users.first();

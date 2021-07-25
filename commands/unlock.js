@@ -4,7 +4,7 @@ module.exports = {
     commands: ['unlock'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['MANAGE_CHANNELS'],
     async callback(message, arguments, text) {
 
         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You do not have permissions to run this command.')

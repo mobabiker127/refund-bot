@@ -4,7 +4,7 @@ module.exports = {
     commands: ['kick', 'boot'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['KICK_MEMBERS'],
     callback: (message, arguments, text) => {
 
 

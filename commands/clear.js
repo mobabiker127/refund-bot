@@ -4,7 +4,7 @@ module.exports = {
     commands: ['clear', 'purge'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['MANAGE_MESSAGES'],
     async callback(message, arguments, text) {
 
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {

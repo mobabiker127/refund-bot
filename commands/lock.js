@@ -3,10 +3,10 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 module.exports = {
     commands: ['lock', 'lockdown'],
     minArgs: 0,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['MANAGE_CHANNELS'],
     async callback(message, arguments, text) {
 
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+        if (!message.member.hasPermission("MANAGE_CHANNELS")) {
             return message.reply("You don't have permission to do that.");
         }
         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('You do not have permissions to run this command.')
