@@ -1,5 +1,4 @@
-const Discord = require('discord.js'); //bad
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
+
 module.exports = {
     commands: ['av', 'avatar'],
     minArgs: 0,
