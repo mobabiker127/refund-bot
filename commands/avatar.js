@@ -1,11 +1,13 @@
-const Discord = require('../main')
+const Discord = require('discord.js');
+
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['av', 'avatar'],
     minArgs: 0,
     maxArgs: 1,
     callback: (message, arguments, text) => {
 
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
 
         if (!message.mentions.users.first()) {
             embed.setTitle("Your Avatar:")
