@@ -16,7 +16,7 @@ module.exports = {
             .setDescription('You will be notified whenever there is a game night!\n\n'
                 + `${gamesEmoji} Games role\n`);
         message.channel.messages.fetch('866369346473164822')
-        const embededit = msg.first()
+        const embededit = message.first()
         embededit.edit(embed);
 
     }
