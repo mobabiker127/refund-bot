@@ -34,6 +34,7 @@ module.exports = {
 
                 setTimeout(function () {
                     memberTarget.roles.remove(muteRole.id);
+                    memberTarget.send('Your mute in Refund has expired.')
                 }, ms(arguments[1]));
 
             }
