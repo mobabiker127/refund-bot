@@ -18,7 +18,7 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
             .setColor('#39d3bb')
-            .setTitle('React to this to get the Updates Role.')
+            .setTitle('React to this to get the Updates role.')
             .setDescription('You will be notified whenever there is an update in the server!\n\n'
                 + `${updatesEmoji} Updates role\n`);
 
