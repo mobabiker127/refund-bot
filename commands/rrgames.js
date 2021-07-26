@@ -18,11 +18,11 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
             .setColor('#56F307')
-            .setTitle('React to this to get the Games Role.')
+            .setTitle('React to this to get the Games role.')
             .setDescription('You will be notified whenever there is a game night!\n\n'
                 + `${gamesEmoji} Games role\n`);
 
-        let messageEmbed = await message.channel.send(embed);
+        let messageEmbed = await message.edit(embed);
         messageEmbed.react(gamesEmoji);
 
         client.on('messageReactionAdd', async (reaction, user) => {
