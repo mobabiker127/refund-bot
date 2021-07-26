@@ -15,9 +15,10 @@ module.exports = {
             .setTitle('React to this to get the Games role.')
             .setDescription('You will be notified whenever there is a game night!\n\n'
                 + `${gamesEmoji} Games role\n`);
-        message.channel.messages.fetch('866369346473164822').then(msg => {
-        const embededit = msg.first()
-        embededit.edit(embed);
+        message.channel.messages.fetch('866369346473164822')
+        .then(msg => {
+            const embededit = msg.first()
+            embededit.edit(embed);
         })
     }
 }
