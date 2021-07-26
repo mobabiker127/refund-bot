@@ -4,7 +4,7 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 const ms = require('ms');
 
 module.exports = {
-    commands: ['mute', 'silence', 'dontspeakifurracist'],
+    commands: ['mute', 'silence', 'dontspeakifurracist', 'shutthefuckup'],
     minArgs: 1,
     maxArgs: 2,
     permissions: ["MANAGE_MESSAGES"],
