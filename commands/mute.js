@@ -9,9 +9,7 @@ module.exports = {
     maxArgs: 2,
     permissions: ["MANAGE_MESSAGES"],
     callback: (message,  arguments, text) => {
-
-
-
+        
             const target = message.mentions.users.first();
 
             if (!message.member.hasPermission("MANAGE_MESSAGES")) {
