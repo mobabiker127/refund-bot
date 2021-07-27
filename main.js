@@ -122,7 +122,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (!reaction.message.guild) return;
 
     if (reaction.message.channel.id === '864958460427501578') {
-        if (reaction.message.id === '866374386888998933') {
+        if (reaction.message.id === '8869570888490696755') {
             if (reaction.emoji.name === '🕹️') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(gamesRole).catch(console.error);
             }
@@ -143,9 +143,30 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (!reaction.message.guild) return;
 
     if (reaction.message.channel.id === '864958460427501578') {
-        if (reaction.message.id === '866374372272766987') {
+        if (reaction.message.id === '869570888490696755') {
             if (reaction.emoji.name === '🎥') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(moviesRole).catch(console.error);
+            }
+        }
+    } else {
+        return;
+    }
+
+});
+
+client.on('messageReactionAdd', async (reaction, user) => {
+
+    const updatesRole = reaction.message.guild.roles.cache.find(r => r.name === "Updates");
+
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === '864958460427501578') {
+        if (reaction.message.id === '869570888490696755') {
+            if (reaction.emoji.name === '📝') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(updatesRole).catch(console.error);
             }
         }
     } else {
