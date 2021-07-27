@@ -6,8 +6,6 @@ module.exports = {
     minArgs: 0,
     callback: (message,  arguments, text) => {
 
-        message.channel.send('Pong')
-
         const newEmbed = new Discord.MessageEmbed()
 
             .setColor('#00000')
@@ -18,6 +16,7 @@ module.exports = {
                 { name: '‏‏‎ ‎', value: `Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`}
 
             )
+            message.channel.send(newEmbed)
     }
 
 

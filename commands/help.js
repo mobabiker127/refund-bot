@@ -6,10 +6,12 @@ module.exports = {
     minArgs: 0,
     callback: (message, arguments, text) => {
 
+        message.channel.send('Check DMs for our current available commands.')
+
         const newEmbed = new Discord.MessageEmbed()
 
             .setColor('#F36B07')
-            .setTitle('\**__Refund Bot discord commands.__**')
+            .setTitle('\**__Refund Bot discord commands__**')
             .addFields(
                 { name: '?avatar, ?av', value: "Displays your or a mentioned user's avatar." },
                 { name: '?ping', value: "Displays the bot's ping." },
