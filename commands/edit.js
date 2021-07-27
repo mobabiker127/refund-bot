@@ -8,17 +8,10 @@ module.exports = {
     permissions: ['ADMINISTRATOR'],
     async callback(message, arguments, text) {
 
-        const gamesEmoji = '🕹️';
+        const msg = message.channel.messages.fetch('869546399660933130')
+        
 
-        let embed = new Discord.MessageEmbed()
-            .setColor('#56F307')
-            .setTitle('React to this to get the Games role.')
-            .setDescription('You will be notified whenever there is a game night!\n\n' + `${gamesEmoji} Games role\n`)
-        message.channel.messages.fetch('866369346473164822')
-        .then(msg => {
-            const embededit = msg.first()
-            embededit.edit(embed);
-           
-        })
+        
+        
     }
 }
