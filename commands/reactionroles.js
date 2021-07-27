@@ -24,12 +24,12 @@ module.exports = {
             .setColor('#363535')
             .setTitle('Use the reactions below to obtain roles.')
             .setDescription('Obtaining roles will allow you to be notified about specific events & updates!\n\n'
-                + `${moviesEmoji} = Movies\n`
-                + `${gamesEmoji} = Games\n`
+                + `${moviesEmoji} = Movie Nights\n`
+                + `${gamesEmoji} = Game Nights\n`
                 + `${updatesEmoji} = Updates`)
 
         message.delete({ timeout: 1000 })
-        
+
         let messageEmbed = await message.channel.send(embed);
         messageEmbed.react(moviesEmoji);
         messageEmbed.react(gamesEmoji);
