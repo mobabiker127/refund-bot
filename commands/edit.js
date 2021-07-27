@@ -10,7 +10,7 @@ module.exports = {
 
         const msg = message.channel.messages.fetch('869567771502063626')
 
-        msg.edit = ('hello world')
+        msg.message.edit = ('hello world')
 
         
 
