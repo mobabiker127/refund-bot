@@ -8,9 +8,10 @@ module.exports = {
     permissions: ['ADMINISTRATOR'],
     async callback(message, arguments, text) {
 
-        const msgid = message.channel.messages.fetch('869567771502063626').then(msg => {
+        const msg =  await message.channel.messages.fetch('869567771502063626')
+
         msg.edit = ('hello world')
-        })
+        
 
         
 
