@@ -27,7 +27,7 @@ module.exports = {
             .setDescription('Obtaining roles will allow you to be notified about specific events & updates!\n\n'
                 + `${moviesEmoji} = Movies\n`
                 + `${gamesEmoji} = Games\n`
-                + `${updatesRole} = Updates`)
+                + `${updatesEmoji} = Updates`)
 
         let messageEmbed = await message.channel.send(embed);
         messageEmbed.react(moviesEmoji);
