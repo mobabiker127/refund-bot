@@ -11,6 +11,7 @@ module.exports = {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             return message.reply("You don't have permission to do that.");
         }
+        message.delete({ timeout: 1000 })
         const channel = message.guild.channels.cache.find(ch => ch.name === '📗│custom-roles')
         const gamesRole = message.guild.roles.cache.find(role => role.name === "Games");
         const moviesRole = message.guild.roles.cache.find(role => role.name === "Movies");
