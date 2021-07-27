@@ -8,9 +8,9 @@ module.exports = {
 
         const newEmbed = new Discord.MessageEmbed()
 
-            .setColor('#0796F3')
+            .setColor('#F30707')
             .addFields(
-                { name: '‏‏‎Pong.', value: `Latency is ${Date.now() - message.createdTimestamp}ms.`}
+                { name: '‏‏‎Pong', value: `Latency is ${Date.now() - message.createdTimestamp}ms.`}
             )
             message.channel.send(newEmbed)
     }
