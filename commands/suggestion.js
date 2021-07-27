@@ -6,6 +6,8 @@ module.exports = {
     cooldown: 60 * 1000,
     callback: (message, arguments, text) => {
 
+        message.delete({ timeout: 1000 })
+
         const channel = message.guild.channels.cache.find(c => c.name === '📫・suggestions');
 
         if (!arguments[0]) return message.reply("You cannot send empty suggestions.").then(msg => {
@@ -20,7 +22,6 @@ module.exports = {
         channel.send(embed).then((msg) => {
             msg.react('✅');
             msg.react('❌');
-            message.delete();
         })
 
 
