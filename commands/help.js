@@ -10,7 +10,7 @@ module.exports = {
 
         const newEmbed = new Discord.MessageEmbed()
 
-            .setColor('#F36B07')
+            .setColor('#353532')
             .setTitle('\**__Refund Bot discord commands__**')
             .addFields(
                 { name: '?avatar, ?av', value: "Displays your or a mentioned user's avatar." },
