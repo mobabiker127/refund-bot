@@ -121,6 +121,27 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 });
 
+client.on('messageReactionAdd', async (reaction, user) => {
+
+    const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
+
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === '813826725112447077') {
+        if (reaction.message.id === '866372822796206080') {
+            if (reaction.emoji.name === '🍴') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(verifyRole).catch(console.error);
+            }
+        }
+    } else {
+        return;
+    }
+
+});
+
 client.on('messageReactionRemove', async (reaction, user) => {
 
     const gamesRole = reaction.message.guild.roles.cache.find(r => r.name === "Games");
