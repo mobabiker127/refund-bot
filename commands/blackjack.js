@@ -19,13 +19,11 @@ module.exports = {
             return message.reply("You don't have permission to do that.");
         }
 
-        function getCard(card) {
-            return cards[Math.floor(Math.random()*cards.length)];
-        }
+        const randomCard = cards[Math.floor(Math.random() * cards.length)];
 
-        const randomCard = getCard(cards)
+        const realRandomCard = cards[randomCard];
 
-        message.channel.send(randomCard);
+        message.channel.send(realRandomCard);
 
 
     }
