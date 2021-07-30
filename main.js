@@ -67,7 +67,7 @@ client.on("ready", function () {
             name: `${peopleIn} people.`,
             type: "WATCHING"
         },
-        status: 'idle'
+        status: 'online'
     })
         .catch(console.error);
     
