@@ -8,9 +8,13 @@ module.exports = {
     permissions: ['ADMINISTRATOR'],
     async callback(message, arguments, text) {
 
-        const msg =  message.channel.messages.fetch('869567771502063626')
+        const msg =  message.channel.messages.fetch('870681103667691560')
 
-        msg.edit = ('hello world')
+        msg.edit = ('hello world').then(() => {
+            message.reply("Message edited").catch(err => {
+                console.log(err);
+            })
+        })
         
 
         
