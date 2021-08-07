@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
+const hat = new Discord.Collection();
+
 const EventEmitter = require('events')
 
 const emitter = new EventEmitter()
@@ -170,6 +172,32 @@ client.on('messageReactionRemove', async (reaction, user) => {
     }
 
 });
+
+client.on('messageDelete', message => {
+    hat.set(message.channel.id, message)
+
+    const logChannel = client.channels.cache.get('870315818687291402')
+    const deleteMessage = new Discord.MessageEmbed()
+    .setTitle("Deleted message")
+    .addField("Deleted message by", `${message.author} - (${message.author.id})`)
+    .addField("In", message.channel)
+    .addField("Content", message.content)
+    .setColor("ORANGE")
+    .setThumbnail(message.author.displayAvatarURL({dynamic: true}))
+    logChannel.send(deleteMessage)
+ })
+ client.on('messageUpdate', async(oldMessage, newMessage) => {
+    const logChannel = client.channels.cache.get('870315818687291402')
+    const editedMessage = new Discord.MessageEmbed()
+    .setTitle("Edited message")
+    .addField("Edited message by", `${oldMessage.author} - (${oldMessage.author.id})`)
+    .addField("In", oldMessage.channel)
+    .addField("Before", oldMessage.content)
+    .addField("After", newMessage.content)
+    .setColor("ORANGE")
+    .setThumbnail(oldMessage.author.displayAvatarURL({dynamic: true}))
+    await logChannel.send(editedMessage)
+ })
 
 
 client.login(process.env.token);
