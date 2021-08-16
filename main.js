@@ -39,6 +39,16 @@ mongoose.connect(process.env.MONGODB_SRV, {
     console.log(err);
 });
 
+client.on('guildMemberAdd', member => {
+
+    const ChannelId = member.guild.channels.cache.find(channel => channel.name === ':scroll:│server-rules')
+
+    const welcome = member.guild.channels.cache.find(channel => channel.name === ':wave:│join-logs')
+    welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
+    member.roles.add(member.guild.roles.cache.find(role => role.name === "Queued"));
+
+
+})
 
 client.on('guildMemberRemove', member => {
 
@@ -82,6 +92,7 @@ client.on("ready", function () {
     readCommands('commands')
 }
 )
+
 
 client.on('messageReactionAdd', async (reaction, user) => {
 
