@@ -41,9 +41,9 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 client.on('guildMemberAdd', member => {
 
-    const ChannelId = member.guild.channels.cache.find(channel => channel.name === ':scroll:│server-rules')
+    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
 
-    const welcome = member.guild.channels.cache.find(channel => channel.name === ':wave:│join-logs')
+    const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
     welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
     member.roles.add(member.guild.roles.cache.find(role => role.name === "Queued"));
 
