@@ -114,7 +114,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 });
 
-client.on('messageReactionAdd', async (reaction, user) => {
+client.on('messageReactionAdd', async (reaction, user, member) => {
 
     const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
     const queuedRole = reaction.message.guild.roles.cache.find(r => r.name === "Queued")
