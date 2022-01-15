@@ -118,8 +118,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
     const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
     const queuedRole = reaction.message.guild.roles.cache.find(r => r.name === "Queued")
-    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
-    const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
+    const ChannelId = user.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
+    const welcome = user.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
 
     if (reaction.message.partial) await reaction.message.fetch();
     if (reaction.partial) await reaction.fetch();
