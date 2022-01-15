@@ -114,7 +114,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 });
 
-client.on('messageReactionAdd', async (reaction, user, member) => {
+client.on('messageReactionAdd', async (reaction, user) => {
 
     const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
     const queuedRole = reaction.message.guild.roles.cache.find(r => r.name === "Queued")
@@ -131,7 +131,7 @@ client.on('messageReactionAdd', async (reaction, user, member) => {
             if (reaction.emoji.name === '🍴') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(verifyRole).catch(console.error);
                 await reaction.message.guild.members.cache.get(user.id).roles.remove(queuedRole).catch(console.error);
-                welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
+                welcome.send(`Welcome <@${user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
             }
         }
     } else {
