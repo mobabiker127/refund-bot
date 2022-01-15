@@ -32,10 +32,10 @@ module.exports =  {
 
 client.on('guildMemberAdd', member => {
 
-  /*  const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
+    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
 
     const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
-    welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`) */
+    welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
     member.roles.add(member.guild.roles.cache.find(role => role.name === "Queued"));
 
 
@@ -114,12 +114,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 });
 
-client.on('messageReactionAdd', member, async (reaction, user) => {
+client.on('messageReactionAdd', async (reaction, user) => {
 
     const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
     const queuedRole = reaction.message.guild.roles.cache.find(r => r.name === "Queued")
-    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
-    const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
 
     if (reaction.message.partial) await reaction.message.fetch();
     if (reaction.partial) await reaction.fetch();
@@ -131,7 +129,6 @@ client.on('messageReactionAdd', member, async (reaction, user) => {
             if (reaction.emoji.name === '🍴') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(verifyRole).catch(console.error);
                 await reaction.message.guild.members.cache.get(user.id).roles.remove(queuedRole).catch(console.error);
-                welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
             }
         }
     } else {
