@@ -32,9 +32,9 @@ module.exports =  {
 
 client.on('guildMemberAdd', member => {
 
-    const ChannelId = member.guild.channels.cache.find(channel => channel.name === '📜│server-rules')
+    const ChannelId = member.guild.channels.cache.find(channel => channel.id = ('931470768498438194'))
 
-    const welcome = member.guild.channels.cache.find(channel => channel.name === '👋│join-logs')
+    const welcome = member.guild.channels.cache.find(channel => channel.id = ('931471133268668447'))
     welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
     member.roles.add(member.guild.roles.cache.find(role => role.name === "Queued"));
 
