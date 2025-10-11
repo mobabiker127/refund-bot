@@ -6,8 +6,6 @@ module.exports = {
     minArgs: 0,
     callback: (message, args, text) => {
 
-        message.channel.send('Check DMs for our current available commands.')
-
         const newEmbed = new Discord.MessageEmbed()
 
             .setColor('#353532')
@@ -20,7 +18,7 @@ module.exports = {
 
 
             )
-        message.author.send(newEmbed)
+        message.channel.send(newEmbed)
     }
 
 }
