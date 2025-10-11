@@ -7,7 +7,7 @@ module.exports = {
     maxArgs: 1,
     expectedArgs: '<member>',
     permissions: ['BAN_MEMBERS'],
-    callback: (message, arguments, text) => {
+    callback: (message, args, text) => {
 
 
         if (!message.member.hasPermission("BAN_MEMBERS")) {

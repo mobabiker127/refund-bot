@@ -6,7 +6,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     permissions: "ADMINISTRATOR",
-    callback: (message, arguments, text) => {
+    callback: (message, args, text) => {
 
         const cards = [
             "hearts"["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],

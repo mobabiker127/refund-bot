@@ -46,6 +46,7 @@ const validatePermissions = (permissions) => {
 let recentlyRan = []
 
 
+
 module.exports = (client, commandOptions) => {
     let {
         commands,
@@ -57,7 +58,7 @@ module.exports = (client, commandOptions) => {
         permissions = [],
         requiredRoles = [],
         callback
-    } = commandOptions
+    } = commandOptions;
 
     if (typeof commands === 'string') {
         commands = [commands]
@@ -88,7 +89,7 @@ module.exports = (client, commandOptions) => {
                 for (const requiredRole of requiredRoles) {
                     const role = guild.roles.cache.find(role => role.name === requiredRole)
 
-                    if (!role || member.roles.cache.has(role.id)) {
+                    if (!role || !member.roles.cache.has(role.id)) {
                         message.reply(`You must have the "${requiredRole}" role to use execute this command.`)
                         return
                     }
@@ -106,12 +107,12 @@ module.exports = (client, commandOptions) => {
                     return
                 }
 
-                const arguments = content.split(/[ ]+/)
+                const args = content.split(/[ ]+/)
 
-                arguments.shift()
+                args.shift()
 
-                if (arguments.length < minArgs || 
-                    (maxArgs !== null & arguments.length > maxArgs)
+                if (args.length < minArgs || 
+                    (maxArgs !== null & args.length > maxArgs)
                 ) {
                     message.reply(`Format: ${prefix}${alias} ${expectedArgs}`)
                 return
@@ -129,9 +130,14 @@ module.exports = (client, commandOptions) => {
                     }, cooldown
                     )}
 
-                callback(message, arguments, arguments.join(' '))
 
-                return
+                if (typeof callback === 'function') {
+                    callback(message, args, args.join(' '));
+                } else {
+                    console.error(`Command "${commands}" does not have a valid callback function!`);
+                }
+
+                return;
             }
             
         }

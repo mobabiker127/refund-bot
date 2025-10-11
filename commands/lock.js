@@ -5,7 +5,7 @@ module.exports = {
     commands: ['lock', 'lockdown'],
     minArgs: 0,
     permissions: ['MANAGE_CHANNELS'],
-    async callback(message, arguments, text) {
+    async callback(message, args, text) {
 
         if (!message.member.hasPermission("MANAGE_CHANNELS")) {
             return message.reply("You don't have permission to do that.");
@@ -14,7 +14,7 @@ module.exports = {
 
         const role = message.guild.roles.cache.find(role => role.name === "Customer");
 
-        let lockChannel = message.mentions.channels.first() || message.guild.channels.cache.get(arguments[0]);
+        let lockChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
         if (!lockChannel) lockChannel = message.channel;
 
         await lockChannel.updateOverwrite(role, {

@@ -6,7 +6,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     permissions: ['ADMINISTRATOR'],
-    async callback(message, arguments, text) {
+    async callback(message, args, text) {
 
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             return message.reply("You don't have permission to do that.");

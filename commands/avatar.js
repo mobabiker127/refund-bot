@@ -5,7 +5,7 @@ module.exports = {
     commands: ['av', 'avatar'],
     minArgs: 0,
     maxArgs: 1,
-    callback: (message, arguments, text) => {
+    callback: (message, args, text) => {
 
         const messages = ["Looking good as always", "Might wanna consider something else", "How exciting", "Not your finest piece"]
 

@@ -7,7 +7,7 @@ module.exports = {
     maxArgs: 2,
     expectedArgs: '<member>',
     permissions: ['MANAGE_MESSAGES'],
-    callback: (message, arguments, text) => {
+    callback: (message, args, text) => {
 
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
             return message.reply("You don't have permission to do that.");

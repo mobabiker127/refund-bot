@@ -4,7 +4,7 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 module.exports = {
     commands: ['help'],
     minArgs: 0,
-    callback: (message, arguments, text) => {
+    callback: (message, args, text) => {
 
         message.channel.send('Check DMs for our current available commands.')
 

@@ -7,7 +7,7 @@ module.exports = {
     maxArgs: 1,
     expectedArgs: '<member>',
     permissions: ['KICK_MEMBERS'],
-    callback: (message, arguments, text) => {
+    callback: (message, args, text) => {
 
 
 

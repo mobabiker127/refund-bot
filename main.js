@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 
+require('dotenv').config();
+
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 const hat = new Discord.Collection();
@@ -56,7 +58,7 @@ client.on('guildMemberRemove', member => {
 client.on("ready", function () {
     console.log(`Refund Bot is online.`); 
 
-    const peopleIn = client.guilds.cache.get('813824410506100736').members.cache.filter(member => !member.user.bot).size;
+    const peopleIn = client.guilds.cache.get('1187190005764980856').members.cache.filter(member => !member.user.bot).size;
 
     client.user.setPresence({
         activity: {
@@ -104,7 +106,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id === '864958460427501578') {
+    if (reaction.message.channel.id === '1426594608950808576') {
         if (reaction.message.id === '869570888490696755') {
             if (reaction.emoji.name === '🕹️') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(gamesRole).catch(console.error);
@@ -135,7 +137,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id === '864958460427501578') {
+    if (reaction.message.channel.id === '1426594608950808576') {
         if (reaction.message.id === '869570888490696755') {
             if (reaction.emoji.name === '🕹️') {
                 await reaction.message.guild.members.cache.get(user.id).roles.remove(gamesRole).catch(console.error);
@@ -165,7 +167,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (user.bot) return;
     if (!reaction.message.guild) return;
 
-    if (reaction.message.channel.id === '813826725112447077') {
+    if (reaction.message.channel.id === '1426594608950808576') {
         if (reaction.message.id === '866372822796206080') {
             if (reaction.emoji.name === '🍴') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add(verifyRole).catch(console.error);
@@ -181,10 +183,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 // deleted message logger
 
+/*
 client.on('messageDelete', message => {
     hat.set(message.channel.id, message)
 
-    const logChannel = client.channels.cache.get('870315818687291402')
+    const logChannel = client.channels.cache.get('1426594608950808576')
     const deleteMessage = new Discord.MessageEmbed()
     .setTitle("Deleted message")
     .addField("Deleted message by", `${message.author} - (${message.author.id})`)
@@ -195,7 +198,7 @@ client.on('messageDelete', message => {
     logChannel.send(deleteMessage)
  })
  client.on('messageUpdate', async(oldMessage, newMessage) => {
-    const logChannel = client.channels.cache.get('870315818687291402')
+    const logChannel = client.channels.cache.get('1426594608950808576')
     const editedMessage = new Discord.MessageEmbed()
     .setTitle("Edited message")
     .addField("Edited message by", `${oldMessage.author} - (${oldMessage.author.id})`)
@@ -206,7 +209,7 @@ client.on('messageDelete', message => {
     .setThumbnail(oldMessage.author.displayAvatarURL({dynamic: true}))
     await logChannel.send(editedMessage)
  })
-
+    */
 
 client.login(process.env.token);
 
