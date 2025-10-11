@@ -7,7 +7,7 @@ module.exports = {
     maxArgs: 1,
     callback: (message, arguments, text) => {
 
-        const messages = ["Looking sexy as always", "What the fuck is that", "Bro I'd smash", "Garbage"]
+        const messages = ["Looking good as always", "Might wanna consider something else", "How exciting", "Not your finest piece"]
 
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
