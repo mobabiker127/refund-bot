@@ -6,7 +6,7 @@ module.exports = {
     minArgs: 0,
     callback: (message, arguments, text) => {
 
-        message.channel.send('`We do not do refunds here.`');
+        message.channel.send('`No, I do not hand out refunds...`');
 
     }
 }

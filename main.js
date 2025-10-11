@@ -29,6 +29,7 @@ module.exports =  {
     Discord
 }
 
+// welcome message on join
 
 client.on('guildMemberAdd', member => {
 
@@ -41,6 +42,8 @@ client.on('guildMemberAdd', member => {
 
 })
 
+// leave message on leave
+
 client.on('guildMemberRemove', member => {
 
     const goodbye = member.guild.channels.cache.find(channel => channel.name === '😥│leave-logs')
@@ -48,6 +51,7 @@ client.on('guildMemberRemove', member => {
 
 })
 
+// bot handler
 
 client.on("ready", function () {
     console.log(`Refund Bot is online.`); 
@@ -84,6 +88,10 @@ client.on("ready", function () {
 }
 )
 
+/* event role reaction listener */
+
+// reacted to message
+
 
 client.on('messageReactionAdd', async (reaction, user) => {
 
@@ -114,28 +122,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 });
 
-client.on('messageReactionAdd', async (reaction, user) => {
-
-    const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
-    const queuedRole = reaction.message.guild.roles.cache.find(r => r.name === "Queued")
-
-    if (reaction.message.partial) await reaction.message.fetch();
-    if (reaction.partial) await reaction.fetch();
-    if (user.bot) return;
-    if (!reaction.message.guild) return;
-
-    if (reaction.message.channel.id === '813826725112447077') {
-        if (reaction.message.id === '866372822796206080') {
-            if (reaction.emoji.name === '🍴') {
-                await reaction.message.guild.members.cache.get(user.id).roles.add(verifyRole).catch(console.error);
-                await reaction.message.guild.members.cache.get(user.id).roles.remove(queuedRole).catch(console.error);
-            }
-        }
-    } else {
-        return;
-    }
-
-});
+// removed reaction
 
 client.on('messageReactionRemove', async (reaction, user) => {
 
@@ -165,6 +152,34 @@ client.on('messageReactionRemove', async (reaction, user) => {
     }
 
 });
+
+/* new member reaction listener */
+
+client.on('messageReactionAdd', async (reaction, user) => {
+
+    const verifyRole = reaction.message.guild.roles.cache.find(r => r.name === "Customer");
+    const queuedRole = reaction.message.guild.roles.cache.find(r => r.name === "Queued")
+
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === '813826725112447077') {
+        if (reaction.message.id === '866372822796206080') {
+            if (reaction.emoji.name === '🍴') {
+                await reaction.message.guild.members.cache.get(user.id).roles.add(verifyRole).catch(console.error);
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(queuedRole).catch(console.error);
+            }
+        }
+    } else {
+        return;
+    }
+
+});
+
+
+// deleted message logger
 
 client.on('messageDelete', message => {
     hat.set(message.channel.id, message)
