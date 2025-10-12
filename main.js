@@ -215,7 +215,7 @@ client.on('messageDelete', message => {
 
 (async () => {
     try {
-        await mongoose.connect(process.env.MONGODBURI, {
+        await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       keepAlive: true,
@@ -226,7 +226,7 @@ client.on('messageDelete', message => {
     }
 })();
 
-client.login(process.env.token);
+client.login(process.env.TOKEN);
 
 
 
