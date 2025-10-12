@@ -211,6 +211,19 @@ client.on('messageDelete', message => {
  })
     */
 
+(async () => {
+    try {
+        await mongoose.connect(process.env.MONGODBURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      keepAlive: true,
+    });
+        console.log("Connected to MongoDB")
+    } catch (error) {
+        console.log(error);
+    }
+})();
+
 client.login(process.env.token);
 
 
