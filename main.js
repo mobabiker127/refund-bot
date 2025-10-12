@@ -211,6 +211,8 @@ client.on('messageDelete', message => {
  })
     */
 
+ // test
+
 (async () => {
     try {
         await mongoose.connect(process.env.MONGODBURI, {
