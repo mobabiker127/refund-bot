@@ -1,11 +1,11 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     commands: ['ping'],
     minArgs: 0,
     callback: (message,  args, text) => {
 
-        const newEmbed = new Discord.MessageEmbed()
+        const newEmbed = new EmbedBuilder()
 
             .setColor('#F30707')
             .addFields(

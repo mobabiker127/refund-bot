@@ -71,7 +71,7 @@ client.on('guildMemberRemove', member => {
 
 // bot handler
 
-client.on("ready", () => {
+client.once('clientReady', () => {
     console.log(`Refund Bot is online.`);
 
     const peopleIn = client.guilds.cache
@@ -79,27 +79,36 @@ client.on("ready", () => {
         .members.cache.filter(member => !member.user.bot).size;
 
     client.user.setPresence({
-        activities: [{ name: `${peopleIn} people.`, type: 3 }], // WATCHING
+        activities: [{ name: `${peopleIn} people.`, type: 3 }],
         status: 'online',
         });
     const baseFile = 'command_base.js'
     const commandBase = require(`./commands/${baseFile}`)
 
-    const readCommands = dir => {
-        const files = fs.readdirSync(path.join(__dirname, dir))
-        for (const file of files) {
-            const stat = fs.lstatSync(path.join(__dirname, dir, file))
-            if (stat.isDirectory()) {
-                readCommands(path.join(dir, file))
-            } else if (file !== baseFile){
-                const option = require(path.join(__dirname, dir, file))
-                commandBase(client, option)
-            }
-            
-        }
-    }
+    // Function to read command files recursively
+    const readCommands = (dir) => {
+        const files = fs.readdirSync(path.join(__dirname, dir));
 
-    readCommands('commands')
+        for (const file of files) {
+            const fullPath = path.join(__dirname, dir, file);
+            const stat = fs.lstatSync(fullPath);
+
+            if (stat.isDirectory()) {
+                readCommands(path.join(dir, file));
+            } else {
+                const option = require(fullPath);
+
+                if (option.commands) {
+                    commandBase(client, option);
+                } else {
+                    console.log(`Skipping non-message command file: ${file}`);
+                }
+            }
+        }
+    };
+
+    readCommands('commands');
+
 }
 )
 
@@ -228,11 +237,11 @@ client.on('messageDelete', message => {
 
 (async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      keepAlive: true,
-    });
+        mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            keepAlive: true,
+        });
         console.log("Connected to MongoDB")
     } catch (error) {
         console.log(error);

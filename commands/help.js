@@ -1,11 +1,11 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     commands: ['help'],
     minArgs: 0,
     callback: (message, args, text) => {
 
-        const newEmbed = new Discord.MessageEmbed()
+        const newEmbed = new EmbedBuilder()
 
             .setColor('#353532')
             .setTitle('\**__Refund Bot discord commands__**')
@@ -17,7 +17,7 @@ module.exports = {
 
 
             )
-        message.channel.send(newEmbed)
+        message.channel.send({ embeds: [newEmbed] });
     }
 
 }

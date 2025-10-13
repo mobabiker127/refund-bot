@@ -26,6 +26,17 @@ module.exports = (client, commandOptions) => {
         callback
     } = commandOptions;
 
+    if (!commands) {
+        console.error("Command missing 'commands' property:", commandOptions);
+        return;
+    }
+
+    if (typeof commands === 'string') commands = [commands];
+    if (!Array.isArray(commands)) {
+        console.error("Commands is not an array:", commands);
+        return;
+    }
+
     if (typeof commands === 'string') {
         commands = [commands];
     }
