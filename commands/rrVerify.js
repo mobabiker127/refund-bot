@@ -20,7 +20,7 @@ module.exports = {
             .setDescription('This will allow you to access all channels in this discord server.\n\n'
                 + `${customerEmoji} Customer role\n`);
 
-        let messageEmbed = await message.channel.send(embed);
+        let messageEmbed = await message.channel.send({ embeds: [embed] });
         messageEmbed.react(customerEmoji);
 
         client.on('messageReactionAdd', async (reaction, user) => {

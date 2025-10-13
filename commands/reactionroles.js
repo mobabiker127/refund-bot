@@ -19,7 +19,7 @@ module.exports = {
         const moviesEmoji = '🎥';
         const updatesEmoji = '📝';
 
-        let embed = new Discord.MessageEmbed()
+        let embed = EmbedBuilder()
             .setColor('#363535')
             .setTitle('Use the reactions below to obtain roles.')
             .setDescription('Obtaining roles will allow you to be notified about specific events & updates!\n\n'
@@ -29,7 +29,7 @@ module.exports = {
 
         message.delete({ timeout: 1000 })
 
-        let messageEmbed = await message.channel.send(embed);
+        let messageEmbed = await message.channel.send({ embeds: [embed] });
         messageEmbed.react(moviesEmoji);
         messageEmbed.react(gamesEmoji);
         messageEmbed.react(updatesEmoji);

@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     commands: ['av', 'avatar'],

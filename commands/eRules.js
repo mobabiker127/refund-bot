@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     commands: ['erules'],
@@ -10,7 +10,7 @@ module.exports = {
         if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply("You don't have permission to do that.");
         }
-        const newEmbed = new Discord.MessageEmbed()
+        const newEmbed = new EmbedBuilder()
             .setColor('#fffff')
             .setTitle('\:taco:__**Refund Discord Rules**__\:taco:.')
             .setDescription('*Disclaimer: Disobeying Discord TOS will result in a permanent ban. You must follow the rules.*')
@@ -28,7 +28,7 @@ module.exports = {
 
 
 
-        message.channel.send(newEmbed);
+        message.channel.send({ embeds: [newEmbed] });
 
 
     }

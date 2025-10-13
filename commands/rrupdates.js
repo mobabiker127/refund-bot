@@ -22,7 +22,7 @@ module.exports = {
             .setDescription('You will be notified whenever there is an update in the server!\n\n'
                 + `${updatesEmoji} Updates role\n`);
 
-        let messageEmbed = await message.channel.send(embed);
+        let messageEmbed = await message.channel.send({ embeds: [embed] });
         messageEmbed.react(updatesEmoji);
 
         client.on('messageReactionAdd', async (reaction, user) => {

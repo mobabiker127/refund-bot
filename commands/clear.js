@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     commands: ['clear', 'purge'],
@@ -8,7 +8,7 @@ module.exports = {
     async callback(message, args) {
 
         // creating embed
-        const reply_message = new Discord.MessageEmbed()
+        const reply_message = new EmbedBuilder()
             .setColor('#6d0da4')
             .setTitle('Successfully deleted messages!')
             .setDescription(`Deleted ${args[0]} messages successfully.`);
@@ -22,7 +22,7 @@ module.exports = {
         // deleting messages
         await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
             message.channel.bulkDelete(messages);
-            message.channel.send(reply_message);
+            message.channel.send({ embeds: [reply_message] });
         });
     }
 }

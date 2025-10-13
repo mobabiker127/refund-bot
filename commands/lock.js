@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 module.exports = {
     commands: ['lock', 'lockdown'],
     minArgs: 0,

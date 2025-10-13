@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     commands: ['suggest', 'suggestion'],
@@ -11,12 +11,12 @@ module.exports = {
             setTimeout(() => msg.delete(), 5000)})
 
         let messageArgs = args.join(' ');
-        const embed = new Discord.MessageEmbed()
+        const embed = new EmbedBuilder()
             .setColor('#00000')
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(messageArgs);
 
-        channel.send(embed).then((msg) => {
+        channel.send({ embeds: [newEmbed] }).then((msg) => {
             msg.react('✅');
             msg.react('❌');
             message.delete();

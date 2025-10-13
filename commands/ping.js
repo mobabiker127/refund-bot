@@ -11,7 +11,7 @@ module.exports = {
             .addFields(
                 { name: '‏‏‎Pong', value: `Latency is ${Date.now() - message.createdTimestamp}ms.`}
             )
-            message.channel.send(newEmbed)
+            message.channel.send({ embeds: [newEmbed] });
     }
 
 

@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 module.exports = {
     commands: ['slowmode', 'slow'],
     minArgs: 1,

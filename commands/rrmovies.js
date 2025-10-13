@@ -21,7 +21,7 @@ module.exports = {
             .setDescription('You will be notified whenever there is a movie night!\n\n'
                 + `${moviesEmoji} Movies role\n`);
 
-        let messageEmbed = await message.channel.send(embed);
+        let messageEmbed = await message.channel.send({ embeds: [embed] });
         messageEmbed.react(moviesEmoji);
 
         client.on('messageReactionAdd', async (reaction, user) => {
