@@ -4,7 +4,6 @@
   "description": "Discord moderation and command bot. Previously used for a Discord server called \"Refund\".",
   "prefix": "?",
   "main": "main.js",
-  
   "scripts": {
     "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,8 +19,7 @@
   },
   "homepage": "https://github.com/Blactose/refundbot#readme",
   "dependencies": {
-    "discord-reply": "^0.1.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^14.23.2",
     "dotenv": "^10.0.0",
     "events": "^3.3.0",
     "humanize-duration": "^3.27.0",

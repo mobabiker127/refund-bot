@@ -1,10 +1,29 @@
-const {Discord, Events, SlashCommandBuilder } = require('discord.js');
+const {
+  Client,
+  Collection,
+  GatewayIntentBits,
+  Partials,
+  Events
+} = require('discord.js');
 
 require('dotenv').config();
 
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMessageReactions,
+  ],
+  partials: [
+    Partials.Message,
+    Partials.Channel,
+    Partials.Reaction,
+  ],
+});
 
-const hat = new Discord.Collection();
+const hat = new Collection();
 
 const EventEmitter = require('events')
 
@@ -22,14 +41,11 @@ const fs = require('fs');
 
 const { runInContext } = require('vm');
 
-client.commands = new Discord.Collection();
+client.commands = new Collection();
 
-client.events = new Discord.Collection();
+client.events = new Collection();
 
-module.exports =  { 
-    client,
-    Discord
-}
+module.exports =  { client }
 
 // welcome message on join
 
@@ -55,20 +71,17 @@ client.on('guildMemberRemove', member => {
 
 // bot handler
 
-client.on("ready", function () {
-    console.log(`Refund Bot is online.`); 
+client.on("ready", () => {
+    console.log(`Refund Bot is online.`);
 
-    const peopleIn = client.guilds.cache.get('1187190005764980856').members.cache.filter(member => !member.user.bot).size;
+    const peopleIn = client.guilds.cache
+        .get('1187190005764980856')
+        .members.cache.filter(member => !member.user.bot).size;
 
     client.user.setPresence({
-        activity: {
-            name: `${peopleIn} people.`,
-            type: "WATCHING"
-        },
-        status: 'online'
-    })
-        .catch(console.error);
-    
+        activities: [{ name: `${peopleIn} people.`, type: 3 }], // WATCHING
+        status: 'online',
+        });
     const baseFile = 'command_base.js'
     const commandBase = require(`./commands/${baseFile}`)
 

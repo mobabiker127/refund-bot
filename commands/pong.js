@@ -1,10 +1,11 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-const Discord = require('discord.js');
-
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
-
-client.on(Events.InteractionCreate, interaction => {
-    if (interaction.commandname === "ping") {
-        interaction.reply("Pong!");
-    }
-})
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('ping')
+    .setDescription('Replies with Pong!'),
+    
+  async execute(interaction) {
+    await interaction.reply('Pong!');
+  },
+};
