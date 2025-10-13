@@ -11,7 +11,7 @@ module.exports = {
             return message.reply("You don't have permission to do that.");
         }
         const newEmbed = new EmbedBuilder()
-            .setColor('#fffff')
+            .setColor('#ffffff')
             .setTitle(message.member.displayName)
             .setDescription('')
             .addFields(

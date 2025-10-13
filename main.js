@@ -49,6 +49,7 @@ module.exports =  { client }
 
 // welcome message on join
 
+/*
 client.on('guildMemberAdd', member => {
 
     const ChannelId = member.guild.channels.cache.find(channel => channel.id = ('931470768498438194'))
@@ -67,7 +68,7 @@ client.on('guildMemberRemove', member => {
     const goodbye = member.guild.channels.cache.find(channel => channel.name === '😥│leave-logs')
     goodbye.send(`Goodbye ${member.user.tag}. I hope you enjoyed your visit!`)
 
-})
+})*/
 
 // bot handler
 

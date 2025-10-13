@@ -11,7 +11,7 @@ module.exports = {
             return message.reply("You don't have permission to do that.");
         }
         const newEmbed = new EmbedBuilder()
-            .setColor('#fffff')
+            .setColor('#ffffff')
             .setTitle('\:taco:__**Refund Discord Rules**__\:taco:.')
             .setDescription('*Disclaimer: Disobeying Discord TOS will result in a permanent ban. You must follow the rules.*')
             .addFields(

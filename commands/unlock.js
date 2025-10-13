@@ -13,8 +13,8 @@ module.exports = {
         let lockChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
         if (!lockChannel) lockChannel = message.channel;
 
-        await lockChannel.updateOverwrite(role, {
-            SEND_MESSAGES: true
+        await lockChannel.permissionOverwrites.edit(role, {
+            SendMessages: null
         }).catch(err => console.log(err));
         message.channel.send('Channel has been unlocked, enjoy.');
 

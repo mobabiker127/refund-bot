@@ -3,7 +3,7 @@ const { PermissionsBitField } = require('discord.js');
 const ms = require('ms');
 
 module.exports = {
-    commands: ['mute', 'silence', 'dontspeakifurracist', 'shutthefuckup'],
+    commands: ['mute', 'silence'],
     minArgs: 1,
     permissions: ['ManageMessages'],
     callback: (message,  args, text) => {
