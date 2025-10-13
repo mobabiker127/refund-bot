@@ -72,12 +72,13 @@ client.on('guildMemberRemove', member => {
 
 // bot handler
 
-client.once('clientReady', () => {
+client.once('clientReady', async () => {
     console.log(`Refund Bot is online.`);
 
-    const peopleIn = client.guilds.cache
-        .get('1187190005764980856')
-        .members.cache.filter(member => !member.user.bot).size;
+    const guild = client.guilds.cache.get('1187190005764980856');
+    await guild.members.fetch();
+
+    const peopleIn = guild.members.cache.filter(m => !m.user.bot).size;
 
     client.user.setPresence({
         activities: [{ name: `${peopleIn} people.`, type: 3 }],
