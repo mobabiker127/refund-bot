@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {Discord, Events, SlashCommandBuilder } = require('discord.js');
 
 require('dotenv').config();
 
