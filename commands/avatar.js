@@ -16,14 +16,14 @@ module.exports = {
         if (!message.mentions.users.first()) {
             embed.setTitle("Your Avatar:")
             embed.setDescription(randomMessage)
-            embed.setColor("#00000")
+            embed.setColor("000000")
             embed.setImage(message.author.displayAvatarURL({ size: 4096, dynamic: true }))
             return message.channel.send({ embeds: [embed] });
         } else {
             const user = message.mentions.users.first()
             embed.setTitle(`${user.tag}'s Avatar`)
             embed.setDescription(randomMessage)
-            embed.setColor("#00000")
+            embed.setColor("000000")
             embed.setImage(user.displayAvatarURL({ size: 4096, dynamic: true }))
             return message.channel.send({ embeds: [embed] });
         }

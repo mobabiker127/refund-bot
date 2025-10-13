@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
     commands: ['unlock'],
     minArgs: 0,

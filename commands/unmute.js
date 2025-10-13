@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 module.exports = {
     commands: ['unmute'],
     minArgs: 1,

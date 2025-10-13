@@ -1,3 +1,5 @@
+const { PermissionsBitField } = require('discord.js');
+
 const ms = require('ms');
 
 module.exports = {
