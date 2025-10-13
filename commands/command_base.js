@@ -1,4 +1,5 @@
 const { prefix } = require('../package.json');
+
 const { PermissionsBitField } = require('discord.js');
 
 const validatePermissions = (permissions) => {

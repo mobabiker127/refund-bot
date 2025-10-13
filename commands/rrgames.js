@@ -1,14 +1,13 @@
-const Discord = require('discord.js');
+const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['rrgames'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['Administrator'],
     async callback(message, args, text) {
 
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply("You don't have permission to do that.");
         }
         const channel = message.guild.channels.cache.find(ch => ch.name === '📗│custom-roles')
@@ -16,7 +15,7 @@ module.exports = {
 
         const gamesEmoji = '🕹️';
 
-        let embed = new Discord.MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#56F307')
             .setTitle('React to this to get the Games role.')
             .setDescription('You will be notified whenever there is a game night!\n\n'

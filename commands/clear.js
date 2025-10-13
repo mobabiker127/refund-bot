@@ -4,7 +4,7 @@ module.exports = {
     commands: ['clear', 'purge'],
     minArgs: 1,
     maxArgs: 1,
-    permissions: ['MANAGE_MESSAGES'],
+    permissions: ['ManageMessages'],
     async callback(message, args) {
 
         // creating embed

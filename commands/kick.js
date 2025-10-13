@@ -1,17 +1,16 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['kick', 'boot'],
     minArgs: 0,
     maxArgs: 1,
     expectedArgs: '<member>',
-    permissions: ['KICK_MEMBERS'],
+    permissions: ['KickMembers'],
     callback: (message, args, text) => {
 
 
 
-        if (!message.member.hasPermission("KICK_MEMBERS")) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.KickMembers)) {
             return message.reply("You don't have permission to do that.");
         }
 

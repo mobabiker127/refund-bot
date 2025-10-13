@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['blackjack'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: "ADMINISTRATOR",
+    permissions: ['Administrator'],
     callback: (message, args, text) => {
 
         const cards = [
@@ -15,7 +14,7 @@ module.exports = {
             "diamonds"["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
         ];
         
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply("You don't have permission to do that.");
         }
 

@@ -1,17 +1,16 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 const ms = require('ms');
 
 module.exports = {
     commands: ['mute', 'silence', 'dontspeakifurracist', 'shutthefuckup'],
     minArgs: 1,
-    permissions: ["MANAGE_MESSAGES"],
+    permissions: ['ManageMessages'],
     callback: (message,  args, text) => {
         
             const target = message.mentions.users.first();
 
-            if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+            if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
                 return message.reply("You don't have permission to do that.");
             }
 

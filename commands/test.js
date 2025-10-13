@@ -1,14 +1,13 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 module.exports = {
     commands: ['test'],
     minArgs: 0,
     maxArgs: 1,
-    permissions: ['ADMINISTRATOR'],
+    permissions: ['Administrator'],
     callback: (message, args, text) => {
 
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply("You don't have permission to do that.");
         }
         const newEmbed = new Discord.MessageEmbed()
