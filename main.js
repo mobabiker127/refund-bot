@@ -42,6 +42,7 @@ const fs = require('fs');
 const { runInContext } = require('vm');
 
 client.commands = new Collection();
+client.slashCommands = new Collection();
 
 client.events = new Collection();
 
@@ -110,6 +111,57 @@ client.once('clientReady', async () => {
     };
 
     readCommands('commands');
+
+
+    const slashPath = path.join(__dirname, 'slash-commands');
+    console.log('Looking in folder:', slashPath);
+    const slashCommandFiles = fs.readdirSync(slashPath).filter(file => file.endsWith('.js'));
+    console.log('Found files:', slashCommandFiles);
+
+
+    for (const file of slashCommandFiles) {
+    const command = require(`./slash-commands/${file}`);
+    if (!command.data || !command.execute) {
+        console.log(`Skipping invalid slash command file: ${file}`);
+        continue;
+    }
+    client.slashCommands.set(command.data.name, command);
+    }
+    // registering slash commands
+
+    const { REST, Routes } = require('discord.js');
+
+    const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+
+    (async () => {
+    const commands = client.slashCommands.map(cmd => cmd.data.toJSON());
+
+    try {
+        console.log(`Registering ${commands.length} slash commands...`);
+        await rest.put(
+        Routes.applicationGuildCommands('1426581694038806660', '1187190005764980856'),
+        { body: commands }
+        );
+    } catch (err) {
+        console.error(err);
+    }
+    })();
+
+    // handling interactions
+
+    client.on('interactionCreate', async interaction => {
+    if (!interaction.isCommand()) return;
+
+    const command = client.slashCommands.get(interaction.commandName);
+    if (!command) return;
+
+    try {
+        await command.execute(interaction);
+    } catch (error) {
+        console.error(error);
+        await interaction.reply({ content: 'There was an error executing this command!', ephemeral: true });
+    }
+    });
 
 }
 )
@@ -235,7 +287,6 @@ client.on('messageDelete', message => {
  })
     */
 
- // test
 
 (async () => {
     try {
