@@ -48,29 +48,6 @@ client.events = new Collection();
 
 module.exports =  { client }
 
-// welcome message on join
-
-/*
-client.on('guildMemberAdd', member => {
-
-    const ChannelId = member.guild.channels.cache.find(channel => channel.id = ('931470768498438194'))
-
-    const welcome = member.guild.channels.cache.find(channel => channel.id = ('931471133268668447'))
-    welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
-    member.roles.add(member.guild.roles.cache.find(role => role.name === "Queued"));
-
-
-})
-
-// leave message on leave
-
-client.on('guildMemberRemove', member => {
-
-    const goodbye = member.guild.channels.cache.find(channel => channel.name === '😥│leave-logs')
-    goodbye.send(`Goodbye ${member.user.tag}. I hope you enjoyed your visit!`)
-
-})*/
-
 // bot handler
 
 client.once('clientReady', async () => {
@@ -166,11 +143,36 @@ client.once('clientReady', async () => {
 }
 )
 
+// !! OUTDATED CODE FROM 2022 [WILL UPDATE SOON] !!
+
+// welcome message on join
+
+/*
+client.on('guildMemberAdd', member => {
+
+    const ChannelId = member.guild.channels.cache.find(channel => channel.id = ('931470768498438194'))
+
+    const welcome = member.guild.channels.cache.find(channel => channel.id = ('931471133268668447'))
+    welcome.send(`Welcome <@${member.user.id}> to Refund! Make sure to read ${(ChannelId)}.`)
+    member.roles.add(member.guild.roles.cache.find(role => role.name === "Queued"));
+
+
+})
+
+// leave message on leave
+
+client.on('guildMemberRemove', member => {
+
+    const goodbye = member.guild.channels.cache.find(channel => channel.name === '😥│leave-logs')
+    goodbye.send(`Goodbye ${member.user.tag}. I hope you enjoyed your visit!`)
+
+})*/
+
 /* event role reaction listener */
 
 // reacted to message
 
-
+/*
 client.on('messageReactionAdd', async (reaction, user) => {
 
     const gamesRole = reaction.message.guild.roles.cache.find(r => r.name === "Games");
@@ -199,6 +201,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
 
 });
+
 
 // removed reaction
 
@@ -231,7 +234,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 });
 
-/* new member reaction listener */
+ new member reaction listener
 
 client.on('messageReactionAdd', async (reaction, user) => {
 
@@ -255,6 +258,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
 
 });
+*/
 
 
 // deleted message logger
@@ -302,7 +306,3 @@ client.on('messageDelete', message => {
 })();
 
 client.login(process.env.TOKEN);
-
-
-
-// 
