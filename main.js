@@ -140,8 +140,7 @@ client.once('clientReady', async () => {
     }
     });
 
-}
-)
+});
 
 // !! OUTDATED CODE FROM 2022 [WILL UPDATE SOON] !!
 
@@ -294,11 +293,7 @@ client.on('messageDelete', message => {
 
 (async () => {
     try {
-        mongoose.connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            keepAlive: true,
-        });
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to MongoDB")
     } catch (error) {
         console.log(error);
