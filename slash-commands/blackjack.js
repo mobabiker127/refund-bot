@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js');
 
 // setting up deck of cards
 
@@ -26,17 +26,33 @@ function selectCard(deck) {
     return newCard;
 }
 
+//
 
 
 // executing command
 
 module.exports = {
-  data: new SlashCommandBuilder()
-    .setName('blackjack')
-    .setDescription('Initiate a game of blackjack'),
+    data: new SlashCommandBuilder()
+        .setName('blackjack')
+        .setDescription('Initiate a game of blackjack'),
 
-    
-  async execute(interaction) {
-    await interaction.reply('Pong!');
-  },
+    async execute(interaction) {
+
+    // buttons for hit and stand
+    const buttons = new ActionRowBuilder()
+        .addComponents(
+            new ButtonBuilder()
+            .setCustomId('hit')
+            .setLabel('Hit')
+            .setStyle(ButtonStyle.Primary),
+            new ButtonBuilder()
+            .setCustomId('stand')
+            .setLabel('Stand')
+            .setStyle(ButtonStyle.Danger),
+        );
+        
+
+    }
+
+
 };
