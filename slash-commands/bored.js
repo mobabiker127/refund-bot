@@ -25,6 +25,46 @@ module.exports = {
         { name: 'Prefix:', value: "/blackjack" },
       )
       .setFooter({ text: 'Refund Bot • Powered by discord.js', iconURL: interaction.client.user.displayAvatarURL() })
+      .setTimestamp(),
+
+      new EmbedBuilder()
+      .setTitle('PopSauce')
+      .setDescription('**Test your knowledge on random categories!**')
+      .setColor('#353532')
+      .addFields(
+        { name: 'jklm', value: "https://jklm.fun/" },
+      )
+      .setFooter({ text: 'Refund Bot • Powered by discord.js', iconURL: interaction.client.user.displayAvatarURL() })
+      .setTimestamp(),
+
+      new EmbedBuilder()
+      .setTitle('Type Racing')
+      .setDescription('**Race other people on typing speed!**')
+      .setColor('#353532')
+      .addFields(
+        { name: 'TypeRacer', value: "https://play.typeracer.com/" },
+      )
+      .setFooter({ text: 'Refund Bot • Powered by discord.js', iconURL: interaction.client.user.displayAvatarURL() })
+      .setTimestamp(),
+
+      new EmbedBuilder()
+      .setTitle('Paint the World')
+      .setDescription('**Check out and design cool pixel art on the world map!**')
+      .setColor('#353532')
+      .addFields(
+        { name: 'Wplace', value: "https://wplace.live/" },
+      )
+      .setFooter({ text: 'Refund Bot • Powered by discord.js', iconURL: interaction.client.user.displayAvatarURL() })
+      .setTimestamp(),
+
+      new EmbedBuilder()
+      .setTitle('Mini Crossword')
+      .setDescription('**Complete today\'s mini crossword!**')
+      .setColor('#353532')
+      .addFields(
+        { name: 'Seattle Times', value: "https://www.seattletimes.com/games-crossword-mini/" },
+      )
+      .setFooter({ text: 'Refund Bot • Powered by discord.js', iconURL: interaction.client.user.displayAvatarURL() })
       .setTimestamp()
 
     ]
