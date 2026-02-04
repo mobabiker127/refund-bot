@@ -39,7 +39,7 @@ module.exports = {
       const summary = completion.choices[0].message.content;
 
       const embed = new EmbedBuilder()
-        .setTitle('Latest tech news!')
+        .setTitle('💻 Latest tech news! 💻')
         .setDescription(summary.slice(0, 4000))
         .setColor(0x5865F2)
         .setFooter({ text: 'Tech news daily • Powered by Refund Bot' })
@@ -49,7 +49,7 @@ module.exports = {
 
     } catch (error) {
       console.error(error);
-      await interaction.editReply('❌ Failed to generate today’s news.');
+      await interaction.editReply('Failed to generate today’s news.');
     }
   },
 };
