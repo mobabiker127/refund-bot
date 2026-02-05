@@ -54,30 +54,17 @@ module.exports = {
         throw new Error('No readable content found');
       }
 
-      const extractUser = await groq.chat.completions.create({
-        model: 'llama-3.1-8b-instant',
-        messages: [
-          {
-            role: 'system',
-            content:
-              'Return the players username only. Do not add any additional text to this prompt, just the username',
-          },
-          {
-            role: 'user',
-            content: pageText,
-          },
-        ],
-      });
+      const user = $('span.actual_persona_name').first()?.text()?.trim() || 'Username not found';
 
 
       // Ask Groq to extract recent games
-      const completion = await groq.chat.completions.create({
+      const completion1 = await groq.chat.completions.create({
         model: 'llama-3.1-8b-instant',
         messages: [
           {
             role: 'system',
             content:
-              'From the provided text, list the most recent games the user has played',
+              'From the provided text, list the most recent games the user has played.',
           },
           {
             role: 'user',
@@ -86,16 +73,34 @@ module.exports = {
         ],
       });
 
-      user = extractUser.choices[0].message.content.trim();
+      const completion2 = await groq.chat.completions.create({
+        model: 'llama-3.1-8b-instant',
+        messages: [
+          {
+            role: 'system',
+            content:
+              'From the provided text, list general information about the player in one paragraph.',
+          },
+          {
+            role: 'user',
+            content: pageText,
+          },
+        ],
+      });
 
-      const games = completion.choices[0].message.content.trim();
+      const games = completion1.choices[0].message.content.trim();
+      const description = completion2.choices[0].message.content.trim();
 
       const embed = new EmbedBuilder()
-        .setTitle('Steam game check')
+        .setTitle('Steam Profile Review')
         .setDescription(`**Player:** ${user}`)
         .addFields({
           name: 'Games',
           value: games,
+        })
+        .addFields({
+          name: 'Description',
+          value: description,
         })
         .setColor(0xff4655)
         .setFooter({ text: 'Data via Steam' });
