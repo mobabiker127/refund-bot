@@ -14,7 +14,7 @@ module.exports = {
       const websiteText = await fetchDailyWebsite();
 
       if (!websiteText || websiteText.length < 100) {
-        return interaction.editReply('❌ Could not read today’s content.');
+        return interaction.editReply('Could not read today’s content.');
       }
 
       const completion = await groq.chat.completions.create({
